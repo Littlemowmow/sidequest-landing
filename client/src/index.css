@@ -49,6 +49,9 @@
   * {
     @apply border-border;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply font-sans antialiased bg-background text-foreground;
     background-image: 
@@ -57,6 +60,10 @@
       radial-gradient(at 100% 100%, rgba(253, 186, 116, 0.04) 0px, transparent 50%),
       radial-gradient(at 0% 100%, rgba(251, 146, 60, 0.04) 0px, transparent 50%);
     background-attachment: fixed;
+  }
+  ::selection {
+    background: rgba(249, 115, 22, 0.3);
+    color: white;
   }
 }
 
@@ -129,4 +136,21 @@
 
 .animate-gradient {
   animation: gradient 6s ease infinite;
+}
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 30%, rgba(249,115,22,0.12) 50%, rgba(255,255,255,0.06) 70%, transparent 100%);
+}
+
+.glow-orange {
+  box-shadow: 0 0 40px -10px rgba(249, 115, 22, 0.4), 0 0 80px -20px rgba(249, 115, 22, 0.15);
+}
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.5);
 }

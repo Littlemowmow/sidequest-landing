@@ -58,7 +58,7 @@ export function Hero() {
                   <Button 
                     onClick={scrollToWaitlist}
                     size="lg" 
-                    className="rounded-full bg-white hover:bg-white/90 text-black text-base font-semibold h-14 px-10 shadow-2xl hover:shadow-orange-500/20 transition-all"
+                    className="rounded-full bg-white hover:bg-white/90 text-black text-base font-semibold h-14 px-10 shadow-2xl shadow-orange-500/15 hover:shadow-orange-500/30 hover:scale-[1.02] transition-all"
                     data-testid="button-hero-cta"
                   >
                     Claim Your Spot <ArrowRight className="ml-2" size={18} />

@@ -36,7 +36,7 @@ export function ContentSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.08 }}
-              className="relative aspect-[4/3] rounded-2xl overflow-hidden group cursor-default hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300"
+              className="relative aspect-[4/3] rounded-2xl overflow-hidden group cursor-default hover-lift hover:shadow-xl hover:shadow-orange-500/10 border border-white/5 hover:border-white/15 transition-all duration-300"
               data-testid={`card-city-${idx}`}
             >
               <img

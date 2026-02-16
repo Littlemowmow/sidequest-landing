@@ -1,0 +1,56 @@
+ Rewrite /Users/hadimuhammadali10/sidequest-landing/client/src/pages/demo.tsx as a scroll-based storytelling page. The current demo is a click-through widget — replace it with a full-page scroll
+  experience where each section auto-animates into view as the user scrolls down, funneling them toward the waitlist CTA at the bottom.                                                                     
+                                                            
+  Keep the existing site's design language — dark theme (bg-background), font-display for headings, text-gradient for accent text, glass-card styling, orange #F97316 as primary accent, framer-motion for
+  all animations. Match the patterns already used in the landing page components.
+
+  Existing patterns to follow (read these files for reference):
+  - client/src/index.css — Theme vars, .glass-card, .text-gradient, .cinematic-glow
+  - client/src/components/landing/FeaturesSection.tsx — whileInView scroll animations, PhoneFrame component, feature section layout (alternating left/right text+mockup)
+  - client/src/components/landing/ProblemSection.tsx — ChatBubble component (blue #007AFF for user, bg-white/10 for others)
+  - client/src/components/landing/Hero.tsx — Spring physics, 3D transforms
+  - client/src/components/ui/button.tsx — Button component
+  - client/src/components/ui/logo.tsx — Logo component
+  - client/src/components/landing/WaitlistSection.tsx — Waitlist section (CTA should link to /#waitlist)
+
+  Tech stack: React, framer-motion (v12, already installed), wouter for routing, lucide-react for icons, canvas-confetti (already installed), Tailwind CSS v4.
+
+  Page structure — each section is min-h-screen flex items-center, two columns on desktop (text left, mockup right), stacked on mobile. Animations use whileInView={{ opacity: 1, y: 0 }} with initial={{
+  opacity: 0, y: 40 }} and viewport={{ once: true, amount: 0.3 }}. Auto-play sequences inside mockups trigger via useEffect timers when section enters viewport (use useInView from framer-motion).
+
+  Conversion mechanics:
+  1. Sticky progress bar — 2px orange bar at top, fills as user scrolls (framer-motion useScroll + useSpring)
+  2. Section counter — Small fixed "3 / 7" label in bottom-right, hides on CTA section
+  3. Between-section hooks — After each mockup, a faded italic teaser pulling to next section (e.g., "But how does the group decide? ↓")
+  4. CTA glow — Subtle confetti/shimmer when final section enters viewport
+
+  Sections in order:
+
+  1. Hero Banner (min-h-[60vh]) — "See How SideQuest Works" with text-gradient, subtitle "From group chat to group trip — scroll to see the magic", bouncing down-arrow
+  2. iMessage Launch — Text: "It starts where your friends already are" / "Open SideQuest right from your iMessage group chat — like GamePigeon, but for trips." Mockup: Phone frame with iMessage chat
+  ("Summer Plans" group). 4-5 messages auto-type with staggered delays. SideQuest icon at bottom pulses orange. Hook: "Four taps. That's all it takes. ↓"
+  3. Quick Setup — Text: "Set up your trip in seconds" / "Location, group size, dates, budget — four quick picks and you're planning." Mockup: SideQuest card appears in chat: "Barcelona" pin, "4 people",
+  "5 days", budget "$$". Card animates from bottom, then "Trip Created!" confirmation. Hook: "Now the AI does the boring part. ↓"
+  4. Smart Itinerary — Text: "We handle the must-sees" / "AI generates a base itinerary..." Mockup: Day-by-day timeline, Morning/Afternoon/Evening slots fill in one by one (staggered). Each has emoji,
+  activity name, time, category badge. "Remix" pill: "Try Sarah's Barcelona 2024". Hook: "But the best spots aren't in any guidebook. ↓"
+  5. Swipe to Customize — Text: "Discover hidden gems" / "Swipe through local SideQuests — speakeasies, rooftop yoga, secret gardens." Mockup: Tinder-style cards that auto-swipe (no user interaction):
+  first right with green "Added!", second left with red "Nah", third right. Swiped-right cards appear as pills below. Hook: "But how does the group decide? ↓"
+  6. Anonymous Group Vote — Text: "Democracy, but for vacations" / "Everyone votes anonymously..." Mockup: Vote bars fill as section enters: "Hidden Speakeasy" 4/4 → green "Must Do", "Rooftop Yoga" 3/4 →
+  blue "Group Pick", "Flamenco Show" vs "Tapas Tour" 2/2 tie → "Tiebreaker!" then one wins with crown. Hook: "Now let the AI put it all together. ↓"
+  7. AI Smart Schedule — Text: "AI builds the perfect schedule" / "Weather, crowds, flights, travel times..." Mockup: "Thinking" state, then insight cards fade in: "Beach day → Wednesday (sunny)",
+  "Sagrada Familia at 9am (shorter lines)", "Mike lands at 2pm (free afternoon first)". Then optimized day view slides up with weather icons. Hook: "One last thing — who owes who? ↓"
+  8. Budget & Flights — Text: "Split costs, track flights, stay in sync" Mockup: Budget card (Stays $800, Food $400, Activities $300, Transport $200), "$425/person". Flight card: "Mike — AA1234 — Lands
+  Tue 2:15pm". Settlement: "You owe Sarah $45", "Jess owes you $20". Hook: "That's SideQuest. Ready? ↓"
+  9. CTA Banner — Full-width, radial orange glow, "Plan trips the way they should be planned." Big orange pulsing "Join the Waitlist" button → navigates to /#waitlist. Social proof: "1,200+ people already
+   signed up". "Watch again ↑" link to scroll top. Fire confetti when this enters viewport.
+
+  Mock data: Barcelona, Spain. Group: Sarah, Mike, Jess, You. Must-sees: Sagrada Familia, La Boqueria, Gothic Quarter, Park Guell, Barceloneta Beach. SideQuests: Hidden Speakeasy, Rooftop Sunset Yoga,
+  Secret Garden Brunch, Flamenco Show, Tapas Tour. Flight: Mike — AA1234, Tue 2:15pm. Budget: ~$1,700 total.
+
+  Mockup styling: Glass-card frame (~375x700), rounded corners, subtle border glow. Cards inside: bg-white/5 border border-white/10 backdrop-blur-md. Stagger child animations with delay: idx * 0.15.
+
+  Output: Single file, demo.tsx, default export DemoPage. No external dependencies beyond what's already installed.
+
+  ---
+  That's your copy-paste prompt with all the codebase context I gathered. Adjust any section copy or ordering as you see fit.
+

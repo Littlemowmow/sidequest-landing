@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { Heart, X, Check, Clock, MapPin, DollarSign, Users, Grip } from "lucide-react";
+import { Heart, X, Check, Clock, MapPin, DollarSign, Users, Grip, Sparkles } from "lucide-react";
 
 function PhoneFrame({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-white rounded-[2.5rem] p-2.5 shadow-2xl w-full max-w-[280px] mx-auto">
-      <div className="bg-gray-50 rounded-[2rem] overflow-hidden relative">
+    <div className="glass-card rounded-[2.5rem] p-2.5 w-full max-w-[280px] mx-auto">
+      <div className="bg-white/5 rounded-[2rem] overflow-hidden relative border border-white/5">
         <div className="absolute top-2 left-1/2 -translate-x-1/2 h-4 w-14 bg-black rounded-full z-20" />
         <div className="pt-8 pb-6 px-4">
           {children}
@@ -18,29 +18,29 @@ function SwipeVoteMockup() {
   return (
     <PhoneFrame>
       <div className="text-center mb-3">
-        <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Swipe to Vote</div>
-        <div className="text-xs text-gray-500">Barcelona Trip &middot; 5 members</div>
+        <div className="text-[10px] font-bold text-white/30 uppercase tracking-widest mb-1">Swipe to Vote</div>
+        <div className="text-xs text-white/40">Barcelona Trip &middot; 5 members</div>
       </div>
-      <div className="relative rounded-2xl overflow-hidden shadow-lg mb-4 aspect-[3/4]">
+      <div className="relative rounded-2xl overflow-hidden shadow-lg mb-4 aspect-[3/4] border border-white/10">
         <img src="/images/hero-barcelona.jpg" className="w-full h-full object-cover" alt="Barcelona beach" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
         <div className="absolute bottom-3 left-3 right-3 text-white">
           <div className="text-lg font-bold font-display">Barceloneta Beach</div>
-          <div className="flex items-center gap-2 text-xs opacity-80 mt-0.5">
+          <div className="flex items-center gap-2 text-xs opacity-70 mt-0.5">
             <MapPin size={10} /> Beach &middot; Free
           </div>
         </div>
       </div>
       <div className="flex justify-center gap-6 mb-3">
-        <div className="w-14 h-14 rounded-full bg-red-50 border-2 border-red-200 flex items-center justify-center text-red-400 shadow-sm">
+        <div className="w-14 h-14 rounded-full bg-red-500/10 border-2 border-red-500/20 flex items-center justify-center text-red-400 shadow-sm hover:scale-110 transition-transform cursor-default">
           <X size={24} />
         </div>
-        <div className="w-14 h-14 rounded-full bg-emerald-50 border-2 border-emerald-200 flex items-center justify-center text-emerald-500 shadow-sm">
+        <div className="w-14 h-14 rounded-full bg-emerald-500/10 border-2 border-emerald-500/20 flex items-center justify-center text-emerald-400 shadow-sm hover:scale-110 transition-transform cursor-default">
           <Heart size={24} />
         </div>
       </div>
-      <div className="bg-emerald-50 border border-emerald-100 rounded-xl px-3 py-2 text-center">
-        <div className="text-xs font-bold text-emerald-700 flex items-center justify-center gap-1.5">
+      <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl px-3 py-2 text-center">
+        <div className="text-xs font-bold text-emerald-400 flex items-center justify-center gap-1.5">
           <Check size={12} /> Group Match: 4/5 agreed
         </div>
       </div>
@@ -49,43 +49,45 @@ function SwipeVoteMockup() {
 }
 
 function BudgetLockMockup() {
-  const categories = [
-    { name: "Accommodation", pct: 40, color: "bg-orange-400" },
-    { name: "Food", pct: 30, color: "bg-amber-400" },
-    { name: "Activities", pct: 20, color: "bg-emerald-400" },
-    { name: "Transport", pct: 10, color: "bg-blue-400" },
+  const people = [
+    { name: "You", emoji: "😎", budget: "$500" },
+    { name: "Sarah", emoji: "👩", budget: "$400" },
+    { name: "Mike", emoji: "🧑", budget: "$350" },
+    { name: "Jess", emoji: "👧", budget: "$450" },
   ];
 
   return (
     <PhoneFrame>
       <div className="text-center mb-4">
-        <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Budget Lock</div>
-        <div className="text-xs text-gray-500">Barcelona Trip &middot; 5 members</div>
+        <div className="text-[10px] font-bold text-white/30 uppercase tracking-widest mb-1">Budget Lock</div>
+        <div className="text-xs text-white/40">Barcelona Trip &middot; 4 members</div>
       </div>
-      <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-4 mb-4 border border-orange-100/60">
-        <div className="text-[10px] font-bold text-orange-600 uppercase tracking-widest mb-1">Group Budget</div>
-        <div className="text-3xl font-bold font-display text-gray-900">$1,200</div>
-        <div className="text-xs text-gray-500 mt-0.5">$240 per person</div>
-      </div>
-      <div className="space-y-3 mb-4">
-        {categories.map((cat) => (
-          <div key={cat.name}>
-            <div className="flex justify-between text-[11px] font-medium text-gray-600 mb-1">
-              <span>{cat.name}</span>
-              <span>{cat.pct}%</span>
+      <div className="space-y-2 mb-4">
+        {people.map((person, i) => (
+          <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-2.5 flex items-center gap-2.5">
+            <div className="text-base">{person.emoji}</div>
+            <div className="flex-1">
+              <div className="text-white text-xs font-bold">{person.name}</div>
             </div>
-            <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-              <div className={`h-full ${cat.color} rounded-full`} style={{ width: `${cat.pct}%` }} />
-            </div>
+            <div className="text-white/70 font-bold text-sm">{person.budget}</div>
+            <Check size={12} className="text-emerald-400" />
           </div>
         ))}
       </div>
-      <div className="flex items-center justify-between bg-gray-50 rounded-xl px-3 py-2.5 border border-gray-100">
-        <div className="flex items-center gap-2">
-          <DollarSign size={14} className="text-emerald-500" />
-          <span className="text-xs font-medium text-gray-600">Real-time splits</span>
+      <div className="bg-gradient-to-br from-orange-500/10 to-amber-500/5 rounded-2xl p-3.5 mb-3 border border-orange-500/20">
+        <div className="flex items-center gap-1.5 mb-1">
+          <Sparkles size={10} className="text-orange-400" />
+          <div className="text-[9px] font-bold text-orange-400 uppercase tracking-widest">Group Sweet Spot</div>
         </div>
-        <div className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full">Live</div>
+        <div className="text-2xl font-bold font-display text-white">$350</div>
+        <div className="text-xs text-white/40 mt-0.5">per person &middot; $1,400 total</div>
+      </div>
+      <div className="flex items-center justify-between bg-white/5 rounded-xl px-3 py-2.5 border border-white/10">
+        <div className="flex items-center gap-2">
+          <DollarSign size={14} className="text-emerald-400" />
+          <span className="text-xs font-medium text-white/50">Real-time splits</span>
+        </div>
+        <div className="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded-full border border-emerald-500/20">Live</div>
       </div>
     </PhoneFrame>
   );
@@ -101,31 +103,31 @@ function SquadItineraryMockup() {
   return (
     <PhoneFrame>
       <div className="text-center mb-4">
-        <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Squad Itinerary</div>
-        <div className="text-xs text-gray-500">Barcelona Trip &middot; Day 1</div>
+        <div className="text-[10px] font-bold text-white/30 uppercase tracking-widest mb-1">Squad Itinerary</div>
+        <div className="text-xs text-white/40">Barcelona Trip &middot; Day 1</div>
       </div>
       <div className="flex gap-2 mb-4">
         {["Day 1", "Day 2", "Day 3"].map((d, i) => (
-          <div key={d} className={`flex-1 text-center py-1.5 rounded-lg text-[11px] font-bold ${i === 0 ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-400"}`}>
+          <div key={d} className={`flex-1 text-center py-1.5 rounded-lg text-[11px] font-bold ${i === 0 ? "bg-orange-500/20 text-orange-400 border border-orange-500/30" : "bg-white/5 text-white/30 border border-white/5"}`}>
             {d}
           </div>
         ))}
       </div>
       <div className="space-y-3">
         {items.map((item, i) => (
-          <div key={i} className="bg-white rounded-xl p-3 border border-gray-100 shadow-sm flex items-start gap-3 group hover:border-orange-100 transition-colors">
-            <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center text-lg shrink-0">{item.icon}</div>
+          <div key={i} className="bg-white/5 rounded-xl p-3 border border-white/10 flex items-start gap-3 group hover:border-orange-500/20 transition-colors">
+            <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center text-lg shrink-0">{item.icon}</div>
             <div className="flex-1 min-w-0">
-              <div className="text-[10px] font-bold text-orange-500 uppercase tracking-wider">{item.time}</div>
-              <div className="text-sm font-bold text-gray-900 truncate">{item.activity}</div>
-              <div className="text-[10px] text-gray-400 mt-0.5">Added by {item.addedBy}</div>
+              <div className="text-[10px] font-bold text-orange-400 uppercase tracking-wider">{item.time}</div>
+              <div className="text-sm font-bold text-white truncate">{item.activity}</div>
+              <div className="text-[10px] text-white/30 mt-0.5">Added by {item.addedBy}</div>
             </div>
-            <Grip size={14} className="text-gray-300 mt-1 shrink-0" />
+            <Grip size={14} className="text-white/15 mt-1 shrink-0" />
           </div>
         ))}
       </div>
       <div className="mt-3 text-center">
-        <div className="text-[10px] text-gray-400 font-medium">Drag to reorder &middot; Tap to edit</div>
+        <div className="text-[10px] text-white/20 font-medium">Drag to reorder &middot; Tap to edit</div>
       </div>
     </PhoneFrame>
   );
@@ -174,14 +176,14 @@ export function FeaturesSection() {
           </p>
         </motion.div>
 
-        <div className="space-y-24">
+        <div className="space-y-32">
           {features.map((feature, idx) => (
             <motion.div
               key={feature.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6 }}
               className={`flex flex-col ${idx % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-12 lg:gap-20`}
               data-testid={`card-feature-${idx}`}
             >

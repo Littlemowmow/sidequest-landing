@@ -17,11 +17,17 @@ export default function Home() {
       <main>
         <Hero />
         <SocialProofSection />
+        <div className="section-divider max-w-4xl mx-auto" />
         <ProblemSection />
+        <div className="section-divider max-w-4xl mx-auto" />
         <FeaturesSection />
+        <div className="section-divider max-w-4xl mx-auto" />
         <ContentSection />
+        <div className="section-divider max-w-4xl mx-auto" />
         <ComparisonSection />
+        <div className="section-divider max-w-4xl mx-auto" />
         <FAQSection />
+        <div className="section-divider max-w-4xl mx-auto" />
         <WaitlistSection />
       </main>
       

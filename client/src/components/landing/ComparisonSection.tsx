@@ -38,7 +38,7 @@ export function ComparisonSection() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-white/5 rounded-3xl p-8 border border-white/10"
+            className="bg-white/5 rounded-3xl p-8 border border-white/10 hover:border-white/15 transition-colors"
           >
             <h3 className="text-lg font-bold text-white/40 mb-6 flex items-center gap-2">
               <div className="w-8 h-8 rounded-full bg-red-500/15 flex items-center justify-center">
@@ -60,7 +60,7 @@ export function ComparisonSection() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-br from-orange-500/10 to-amber-500/5 rounded-3xl p-8 border border-orange-500/20 shadow-sm"
+            className="bg-gradient-to-br from-orange-500/10 to-amber-500/5 rounded-3xl p-8 border border-orange-500/20 shadow-sm hover:border-orange-500/30 transition-colors"
           >
             <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
               <div className="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center">

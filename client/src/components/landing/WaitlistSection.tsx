@@ -77,7 +77,7 @@ export function WaitlistSection() {
   return (
     <section id="waitlist" className="py-20 px-4">
       <div className="container mx-auto max-w-5xl">
-        <div className="bg-white/5 border border-white/10 rounded-[2rem] p-8 md:p-14 text-center relative overflow-hidden max-w-3xl mx-auto">
+        <div className="bg-white/5 border border-white/10 rounded-[2rem] p-8 md:p-14 text-center relative overflow-hidden max-w-3xl mx-auto hover:border-white/15 transition-colors">
            
            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/15 rounded-full blur-[120px] pointer-events-none" />
            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-rose-500/15 rounded-full blur-[120px] pointer-events-none" />
@@ -190,7 +190,7 @@ export function WaitlistSection() {
                   <Button 
                     type="submit" 
                     disabled={status === "loading"}
-                    className="h-16 rounded-2xl bg-white hover:bg-gray-100 text-black font-bold px-10 text-lg transition-all mt-2 shadow-lg shadow-orange-500/20"
+                    className="h-16 rounded-2xl bg-white hover:bg-gray-100 text-black font-bold px-10 text-lg transition-all mt-2 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:scale-[1.02]"
                     data-testid="button-submit-waitlist"
                   >
                     {status === "loading" ? <Loader2 className="animate-spin" /> : "Claim Your Spot"}
