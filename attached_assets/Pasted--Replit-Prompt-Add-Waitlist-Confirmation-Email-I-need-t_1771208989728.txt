@@ -1,0 +1,45 @@
+# Replit Prompt: Add Waitlist Confirmation Email
+
+I need to add email confirmation when someone signs up for my waitlist. Here's what I need:
+
+## What to build
+
+When a user submits the waitlist form (email, destination, when, group/solo), send them a branded confirmation email automatically.
+
+## Email service
+
+Use **Resend** (resend.com) — it's free for 100 emails/day and dead simple. I'll create an account and add my API key as a Replit secret called `RESEND_API_KEY`.
+
+## The confirmation email should:
+
+- Come from `hello@sidequest.app` (or my Resend test domain until I verify my domain)
+- Subject line: "You're on the list 🚀 — SideQuest"
+- Be a clean, branded HTML email with:
+  - SideQuest logo/name at top
+  - "You're in, [first part of email before @]!" as the heading
+  - A short message: "You've secured your spot for early access to SideQuest. We're building something special for travelers who want more than tourist traps — and you'll be first to try it."
+  - If they provided a destination, include: "We'll make sure [destination] is loaded with hidden gems before you get there."
+  - Their unique referral link from the waitlist signup
+  - A CTA: "Share with your travel crew" that links to the referral URL
+  - Footer: "Questions? Reply to this email." and social links
+- Style the email to match the landing page aesthetic — warm dark tones, clean typography, the orange/amber gradient accent color
+- Keep it mobile-friendly (most students will open on their phone)
+
+## Backend route
+
+Create an API endpoint (or add to the existing waitlist submission handler) that:
+1. Saves the signup to the database (this may already work)
+2. Calls Resend's API to send the confirmation email
+3. Returns success/failure to the frontend
+
+## Error handling
+
+- If the email fails to send, still save the signup — don't lose the lead
+- Log email send failures so I can debug
+- Don't send duplicate emails if someone signs up with the same email twice — check for existing signups first
+
+## Important
+
+- Store the Resend API key as a Replit secret, never hardcode it
+- The email should NOT look like a generic template — it should feel like it's from a real startup, not a SaaS platform
+- Keep the email short — no one reads long signup confirmation emails

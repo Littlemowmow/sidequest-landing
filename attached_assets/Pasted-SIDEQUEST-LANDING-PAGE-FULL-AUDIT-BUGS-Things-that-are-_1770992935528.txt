@@ -1,0 +1,44 @@
+SIDEQUEST LANDING PAGE — FULL AUDIT
+🔴 BUGS (Things that are broken)
+1. Nav bar is empty — no navigation links, no hamburger menu. The <nav> element exists and is fixed to the top, but it ONLY contains the "SideQuest" logo text. There are zero navigation links (Features, About, Pricing, etc.) and no mobile hamburger menu. The nav also has pointer-events: none on it, and a transparent background — so it's essentially invisible and non-functional as you scroll.
+2. Email input has wrong type. The "Enter your email" field at the bottom CTA is type="text" instead of type="email". This means no email validation happens, no mobile keyboard with @ symbol appears, and the field isn't marked as required. The form method is also GET instead of POST, which would expose the email in the URL.
+3. "Watch Demo" is not a button or link. It's just a plain <div> — not clickable as a proper interactive element. No role="button", no tabindex, no cursor pointer semantics. It looks like a button but does nothing for assistive tech users and has no actual functionality.
+4. All "View Details" buttons do nothing. The three destination cards (Santorini, Amalfi, Swiss Alps) each have a "View Details" button, but they have no click handlers, no links, and are type="submit" with no associated form. They're completely dead.
+5. All footer links are dead href="#". About, Features, Careers, Contact, and all 3 social media icons (Instagram, Twitter/X, Facebook) all point to #. They don't link to anything.
+6. Social media icons have no aria-label. The three social links in the footer have empty text and no accessible labels — screen readers would announce them as blank links.
+7. Console error. There's a TypeError: Failed to execute 'observe' on 'MutationObserver' error in the console. Minor but shows code sloppiness.
+8. ALL 25 images are missing alt text. Every single <img> on the page (hero, avatars, destinations) has no alt attribute. This is terrible for SEO and accessibility.
+
+🟡 UI/UX ISSUES
+9. No navigation bar visible at the top. When you first land on the page, there is no visible nav bar. Professional landing pages always have a sticky nav with: logo, section links (Features, How It Works, etc.), and a CTA button ("Get Started" / "Join Waitlist"). This makes the site feel unfinished.
+10. Massive whitespace / excessive padding between sections. Every section has padding: 128px top and bottom. The gap between the Problem section → Features section → Destinations section feels huge and empty. This makes the page feel drawn out and like it has less content than it does. Reducing to 80-96px would feel much more cohesive.
+11. The "Problem" section phone mockup ends abruptly. The group chat mockup showing the frustrating conversation is great conceptually, but it just... ends. After the chat messages, there's a "SideQuest Solution / Smart Date Matching ✨" label at the bottom, but it's tiny and easy to miss. The transition from "here's the problem" to "here's our solution" needs to be more dramatic and clear — maybe a visual transformation or side-by-side comparison.
+12. Features cards (Discover/Vote/Book) are underwhelming. They're just white cards with an icon, a title, and one line of text. No images, no mockups, no interactive elements. For a landing page that's supposed to sell you on a travel app, this section feels very barebones compared to competitors like Airbnb or TripAdvisor.
+13. Popular Destinations carousel arrow buttons seem non-functional. The ← → arrows exist but since only 3 cards are visible and they're all shown at once, there's nothing to carousel through. Either add more destinations to actually scroll through, or remove the arrows.
+14. "#1 Travel App of 2026" badge feels fake. This is a pre-launch waitlist page claiming to be the #1 travel app. No source citation, no logo of who gave this rating. This hurts credibility rather than helping it. Consider changing to something more honest like "Coming Soon" or "Launching 2026".
+15. "12k+ Explorers joined the waitlist" — also unverified. The social proof ticker showing people "just booked" trips is fake data for a pre-launch product. This can feel deceptive. Consider being transparent: "Join our growing waitlist" without specific numbers, or if the numbers are real, lean into it.
+16. The destination cards only show European cities. Santorini, Amalfi Coast, Swiss Alps — all Europe. For a global travel app, this is limiting. Add diversity: Tokyo, Bali, New York, etc.
+
+🟠 MARKETING / COPY ISSUES
+17. No clear value proposition above the fold for the actual product. "Travel Better Together" is nice but vague. What IS SideQuest? Is it an app? A website? When does it launch? The subheadline helps, but there's no "SideQuest is a group travel planning app that..." anywhere.
+18. No App Store / Google Play buttons or "Coming to iOS & Android" messaging. If this is a mobile app (the mockups suggest it is), there should be download badges or at least a "Coming soon to iOS and Android" line.
+19. No testimonials or real social proof. The scrolling ticker of "Just booked Tokyo" etc. is fabricated data. Real landing pages need actual testimonials, press mentions, or at minimum "As seen in..." logos to build trust.
+20. No pricing information or "it's free" messaging. Visitors will wonder what this costs. Even if it's free, saying "Free to use" would remove friction from the signup decision.
+21. Only ONE email capture form, buried at the very bottom. The CTA at the bottom of the page is the only email capture. The "Get Started" button at the hero should also either open a modal or scroll to the email form. There should be at least 2-3 email capture opportunities throughout the page.
+22. No explanation of HOW the app actually works. The Discover → Vote → Book section is too abstract. Show actual app screenshots or mockups of the UI. Show a step-by-step visual flow. Right now visitors have to imagine what using the app would be like.
+23. Missing sections that professional landing pages have: no FAQ section, no comparison to alternatives ("Why SideQuest vs. just using a group chat?"), no "How it works" detailed walkthrough with app screenshots, no team/about section, no privacy/terms links, no press/media logos.
+
+🔵 SEO / TECHNICAL
+24. Missing <meta name="description">. The page has no meta description tag at all. This is critical for search engine snippets.
+25. Missing <link rel="canonical">. No canonical URL set.
+26. OG tags are minimal. The og:title is just "SideQuest" (should be more descriptive), and the og:description is just "Plan trips with friends without the headache." No Twitter card meta tags either.
+27. No loading="lazy" on images. All 25 images load eagerly, including ones far below the fold. The avatar images, destination photos etc. should be lazy loaded.
+28. Heading hierarchy is off. There are multiple <h2> elements but the structure could be cleaner for SEO bots to understand the page content.
+
+PROMPT YOU CAN GIVE CLAUDE ON REPLIT
+Here's a prioritized prompt you could use:
+
+Fix the SideQuest landing page with these changes (in priority order):
+Critical bugs: (1) Add a proper sticky navbar with logo, section links (Features, How It Works, Destinations), and a "Join Waitlist" CTA button. Add a hamburger menu for mobile. Give nav a background blur/white on scroll. (2) Change email input to type="email" with required attribute, form method to POST. (3) Make "Watch Demo" a proper button element. (4) Add alt text to all images. (5) Add meta description tag. (6) Fix all footer links — either link them to section IDs on the page or remove dead ones. Add aria-labels to social links.
+UI/UX: (7) Reduce section padding from 128px to 80px. (8) Make the Features section (Discover/Vote/Book) more visual — add app mockup screenshots or illustrations to each card. (9) Add more destination variety (Tokyo, Bali, NYC, Marrakech) and make carousel arrows functional. (10) Replace "#1 Travel App of 2026" with something credible like "Launching 2026" or "Join the waitlist." (11) Add a "How it Works" section with 3 step-by-step app screenshots.
+Marketing: (12) Add a second email capture form mid-page. (13) Add "Coming soon to iOS & Android" with app store badge placeholders. (14) Add a FAQ section. (15) Add a "Why SideQuest?" comparison section. (16) Make "Get Started" hero button scroll to the email form.

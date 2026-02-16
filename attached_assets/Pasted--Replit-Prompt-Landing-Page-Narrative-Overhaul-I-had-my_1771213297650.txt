@@ -1,0 +1,168 @@
+# Replit Prompt: Landing Page Narrative Overhaul
+
+I had my landing page audited and need to make targeted changes to the narrative, copy, and a few structural pieces. I do NOT want a full rebuild — keep the existing design system (warm browns, orange/amber accents, Outfit + Inter fonts, the glassmorphism cards). Just change what I describe below.
+
+Read through ALL of these changes before starting so you understand the new narrative arc, then implement them in order.
+
+---
+
+## CHANGE 1: Hero Section — New Headline + Student Positioning
+
+**Keep the current headline** "The World Is Waiting." with the gold-to-amber gradient on "Waiting." — but add a second line directly below it:
+
+"Your groupchat is frozen."
+
+Style "frozen" with a contrasting treatment — either a cool blue/ice tone to contrast the warm amber, or just keep it in the dark brown body text color so "The World Is Waiting." pops as the aspirational line and "Your groupchat is frozen." lands as the gut punch underneath. The two lines together should read as one headline unit, not a headline + subtext. Make the second line slightly smaller than the first (maybe 80% of the main headline size) but still clearly part of the headline.
+
+**Replace the subtext** with:
+"SideQuest is the app that turns 'I'm down if you are' into an actual trip — with group voting, budget alignment, and hidden gems your guidebook doesn't know about. Built by college students, for college students."
+
+**Replace the primary CTA** "Join the Waitlist →" with "Claim Your Spot →"
+
+**Keep** the "Try the demo" secondary CTA as-is.
+
+**Remove the social proof line entirely** — delete the four fake orange avatar circles and the "200+ groups already on the waitlist" text. We'd rather have no social proof than fake-looking social proof. We'll add real proof later.
+
+**Hero image/mock**: Keep the app mock card on the right, but change the destination from the Matterhorn/Alps to something that feels more like a college group trip — think Barcelona rooftop, Tokyo street scene, or a beach destination. If you can swap the stock photo, great. Also change the floating UI elements to say: "Vote Result: Barcelona won 4-1" and "Per Person $85/day" and "5 going" — make it feel like a friend group trip, not a luxury Alps getaway. Change "GROUP TRIP / The Alps / Budget: $1,800" to "GROUP TRIP / Barcelona / Budget: $1,200 / 80% agreed"
+
+---
+
+## CHANGE 2: Scrolling Marquee — Trim to College Trips
+
+**Remove** "Bachelor Party in Vegas" and "Safari in Kenya" — these skew too old/aspirational for the target audience.
+
+**Replace them with**: "Spring Break in Miami 🌴" and "Study Abroad in Barcelona 🇪🇸"
+
+Keep everything else in the marquee as-is.
+
+---
+
+## CHANGE 3: Problem Section — Add a CTA
+
+The iMessage demo section is the strongest part of the page. It just needs one addition:
+
+**After the iMessage chat and pain-point cards, add a CTA button:**
+"Sound familiar? There's a better way →" — styled as a secondary/ghost button that smooth-scrolls down to the Features section.
+
+Don't change anything else about this section. It's working.
+
+---
+
+## CHANGE 4: Features Section — Replace Text Cards with Visual Mockups
+
+This is the biggest structural change. The current three text-only cards ("Vote Together" / "Budget Fairly" / "Plan as a Group") feel generic and are a letdown after the detailed iMessage demo.
+
+**Replace the three cards with three larger feature blocks** that each have:
+- Left or right aligned app mockup (alternate sides for visual rhythm) — these can be styled div mockups that look like phone screens showing the feature, similar to how the hero mock is built
+- Feature name + description on the opposite side
+
+**Card 1 — "Swipe & Vote"**
+Mockup: A phone screen showing card-stack UI (like Tinder) with a destination card (Barcelona beach photo, activity name, price tag) and two buttons (X and heart/check). Show a small "Group Match: 4/5 agreed" indicator.
+Description: "No more 'I'm down if you are.' Everyone swipes on destinations and activities independently. SideQuest finds what your group actually agrees on — no awkward standoffs."
+
+**Card 2 — "Budget Lock"**
+Mockup: A phone screen showing a clean budget dashboard — group budget at top ($1,200), per-person breakdown ($240/person), category splits (Accommodation 40%, Food 30%, Activities 20%, Transport 10%) with simple bar charts or progress rings.
+Description: "Set a group budget everyone's comfortable with before anyone books anything. Real-time expense tracking and automatic splits so nobody's chasing Venmo requests three months later."
+
+**Card 3 — "Squad Itinerary"**
+Mockup: A phone screen showing a day-by-day itinerary view — Day 1 with time blocks (Morning: La Boqueria Market, Afternoon: Gothic Quarter Walk, Evening: Hidden Rooftop Bar), each with small thumbnail photos and a "Added by Jess" tag.
+Description: "Build a shared itinerary everyone can see and edit. Drag, drop, remix. No more one person doing all the work while everyone else says 'whatever you think.'"
+
+For the phone mockups: Build them as styled divs with rounded corners, a status bar, and the UI content inside — similar to how the hero app mock is constructed. Use the existing color palette. They don't need to be pixel-perfect — they just need to look like a real app screen.
+
+---
+
+## CHANGE 5: Remove Destinations Section, Replace with Launch Cities
+
+Delete the "Popular Destinations" carousel section entirely (Santorini, Amalfi Coast, Swiss Alps, etc.). The star ratings look fabricated, the price-per-night framing is misleading since we don't book anything, and it breaks the narrative flow.
+
+**Replace it with a simple "Launching In" section:**
+
+**Label:** "LAUNCHING FIRST"
+**Headline:** "Where we're starting"
+**Subtext:** "We're curating hidden gems in these cities first. More coming based on where you're headed."
+
+Then show a clean grid of city cards (3 columns on desktop, 2 on mobile). Each card is just a photo + city name + country flag emoji. No ratings, no prices, no fake stats.
+
+Cities to include:
+- Barcelona 🇪🇸
+- London 🇬🇧
+- Paris 🇫🇷
+- Rome 🇮🇹
+- Tokyo 🇯🇵
+- Ann Arbor 🇺🇸
+
+Keep the styling minimal — rounded photo cards with the city name overlaid at the bottom on a dark gradient, similar to how destination cards are currently styled but without the ratings and pricing. The last card (Ann Arbor) is a nod to our home turf — if it feels out of place next to the international cities, add a small tag that says "Home Base" or "HQ" on it.
+
+---
+
+## CHANGE 6: FAQ Updates
+
+**Change the answer to "Is SideQuest free?":**
+Old: "Free for early access, optional premium later"
+New: "Joining the waitlist is completely free. When we open the beta, early supporters get exclusive founding pricing that locks in permanently. We'll share all the details with the waitlist before anyone else."
+
+**Add a new FAQ item:**
+Question: "Who's building SideQuest?"
+Answer: "We're college students at the University of Michigan who got tired of watching amazing trip ideas die in our group chats. We built SideQuest because we needed it ourselves."
+
+---
+
+## CHANGE 7: Waitlist Form Updates
+
+**Keep the form fields as they are** (email, university, destination, when, group/solo toggle) but make these changes:
+
+- Make "Where are you going?" and "When are you traveling?" **optional** (remove any required validation on these fields — only email should be required)
+- **Remove the "Solo Adventure" toggle option.** Just show "Group Trip 👯‍♀️" as the default with no toggle — this is a group travel app, the solo option dilutes the positioning.
+- **Change the submit button text** from "Request Access" to "Claim Your Spot"
+- **Remove "Coming soon to iOS" and "Coming soon to Android"** from below the form. Replace with: "Launching Spring 2026 on iOS"
+
+---
+
+## CHANGE 8: Waitlist Confirmation Experience
+
+After successful form submission, replace the current confirmation state with a full confirmation card (not just a toast notification):
+
+**Show:**
+- Rocket emoji + "You're on the list!"
+- "Here's what happens next:"
+- Step 1: "We'll email you a confirmation shortly."
+- Step 2: "Share your link with your travel crew — you need friends on here anyway."
+- Step 3: "When we open beta access, you'll be first to know."
+- Their unique referral link with a Copy button
+- "🔥 Friends who sign up with your link move you both up the list"
+
+(If the referral system already exists, keep it. If not, generate a simple unique code per signup — even just a hash of their email — and append it as a query param: sidequest.app/join/[code]. Track referral signups in the database.)
+
+---
+
+## CHANGE 9: Footer Cleanup
+
+- Change tagline from "The trip planning app for friend groups." to "So the trip doesn't die in the groupchat."
+- Remove "Made for travelers, by travelers" — it's generic
+- Keep social icons but only show them if they link to real accounts (if they're still # placeholder links, remove them entirely until we have real social accounts)
+- Keep the dead Company/Legal links for now but that's a future fix
+
+---
+
+## CHANGE 10: Small Global Fixes
+
+- Remove any remaining reference to "Android" anywhere on the page — we're iOS first
+- Make sure the nav CTA "Get Early Access" scrolls to the waitlist form smoothly
+- The orange scroll progress bar at the top is a nice touch — keep it
+
+---
+
+## NEW NARRATIVE ARC (for reference as you implement)
+
+The page should now tell this story:
+1. **Hero**: Your group trip is dying right now — we fix that (for college students specifically)
+2. **Marquee**: Look at all the trips people like you are planning
+3. **Problem**: Here's the chaos you're living in (iMessage demo)
+4. **Solution**: Here's exactly how we solve each pain point (with visual product mockups)
+5. **Comparison**: Us vs. the group chat (keep as-is)
+6. **Launch Cities**: Here's where we're starting — and your destination data shapes what's next
+7. **FAQ**: Address objections, introduce team credibility
+8. **Waitlist**: Claim your spot + referral loop
+
+This arc goes: Recognition → Pain → Solution → Proof → Trust → Conversion

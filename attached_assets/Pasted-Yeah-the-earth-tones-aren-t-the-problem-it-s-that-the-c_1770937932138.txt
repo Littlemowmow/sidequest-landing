@@ -1,0 +1,36 @@
+Yeah, the earth tones aren't the problem — it's that the current site uses them at full saturation with zero contrast or energy. Earth tones can absolutely go hard. Think about the difference between a beige yoga studio and a National Geographic cover shot of a volcano at golden hour. Same color family, completely different energy.
+
+The trick is pairing warm earth tones with one high-voltage accent that creates tension. Here are three directions to try:
+
+**Option A — "Golden Hour Adventure"** (earth + electric orange)
+Keep your deep greens and warm browns but replace sage with richer, deeper tones and let orange do the heavy lifting as the energy color. Think jungle at sunset.
+- Background: Deep Forest `#1B2F1F` (rich dark green, not sage)
+- Surface: Warm Charcoal `#2A2319` (brown-black, not gray)
+- Primary accent: Electric Orange `#FF6B35` (this is your energy)
+- Secondary: Amber `#D4940A` (warm gold, not pastel yellow)
+- Text: Warm White `#F5F0E8`
+- Pop color: Crimson `#E11D48` for badges/alerts
+
+**Option B — "Desert at Night"** (terracotta + cyan)
+Warm terracotta and sand tones but against deep dark backgrounds with cyan as the unexpected contrast. Like Morocco meets cyberpunk.
+- Background: Deep Earth `#1A1410` (almost black-brown)
+- Surface: Dark Clay `#2E2218`
+- Primary: Terracotta `#C85A3A` (warmer, earthier than pure orange)
+- Secondary: Dusty Sage `#7A8B6F` (muted green that actually works because it's not the whole palette)
+- Action: Desert Cyan `#3BBAC2` (the unexpected punch)
+- Text: Sand `#E8DFD0`
+
+**Option C — "Volcanic" (my recommendation)**
+This is probably your sweet spot. Rich volcanic earth tones — deep blacks, warm ember glows, mossy greens — but the "lava" accent colors bring the Red Bull energy. Nature that's alive and dangerous, not calm and pastoral.
+- Background: Obsidian `#141210` (warm black)
+- Surface: Volcanic Rock `#262220` 
+- Primary: Ember Orange `#E8642D` (slightly more burnt than electric, feels earthier)
+- Secondary: Deep Moss `#3D5A3E` (rich forest green, not sage)
+- Accent: Lava `#D43D2F` (red-orange glow)
+- Highlight: Warm Cyan `#2BA4A4` (teal, not electric — bridges earth and energy)
+- Text: Ash White `#EDE8E3`
+- Gold: `#C49A2A` for badges/rewards
+
+Option C keeps the nature DNA you like but makes it feel like an adventure, not a spa. The dark volcanic base means your orange accents glow like actual fire instead of looking like a muted accent on sage. And it still works with the Teddiursa mascot and Pokémon energy because Pokémon games are full of these rich environmental palettes.
+
+Want me to update the Replit prompt with one of these, or do you want to mix and match elements?

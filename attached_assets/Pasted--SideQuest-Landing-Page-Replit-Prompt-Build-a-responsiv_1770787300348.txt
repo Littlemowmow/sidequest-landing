@@ -1,0 +1,223 @@
+# SideQuest Landing Page — Replit Prompt
+
+Build a responsive landing page for **SideQuest**, an iOS travel app for groups. Use React + Tailwind CSS (or vanilla HTML/CSS/JS — whatever is fastest). Deploy it so I get a live URL.
+
+---
+
+## WHAT SIDEQUEST IS
+
+SideQuest is an iOS travel app so the trip doesn't die in the groupchat. Instead of exciting travel ideas fizzling out in endless message threads, SideQuest surfaces hidden gems, local secrets, and authentic experiences — then lets groups actually plan and go together.
+
+**Tagline:** "so the trip doesn't die in the groupchat"
+
+**Target users:** Study abroad students (initial wedge), expanding to broader travel market.
+
+**The problem we solve:** You and your friends are hyped about a trip. Someone texts "we should totally go to Barcelona." Everyone's in. Then... 47 unread messages later, nobody's booked anything, nobody knows what to do there, and the trip dies in the groupchat. SideQuest fixes that.
+
+**Three core features:**
+1. **Discover** — Swipe through curated activities like Hinge, but for travel. Each card shows a hidden gem, local pick, or must-do experience with beautiful photography.
+2. **Group Trips** — Create a trip, invite friends with a code, propose activities, and vote on what to do. Democracy, not whoever-texts-loudest.
+3. **Curated Content** — Every activity is categorized:
+   - 🟢 **SideQuest** — Hidden gems worth discovering (secret rooftop bars, underground jazz clubs, locals-only markets)
+   - 🔵 **Local Pick** — What residents actually do (the ramen shop with no English menu, the park where everyone watches sunset)
+   - 🟡 **Tourist Essential** — Worthwhile mainstream stuff that's actually worth your time (not tourist traps)
+
+---
+
+## DESIGN DIRECTION
+
+The visual identity is inspired by two specific Dribbble concepts:
+
+### Reference 1: "Travel app concept" by Tino
+- Dribbble: https://dribbble.com/shots/7137800-Travel-App-UI-kit (search "Tino travel app concept dribbble" for visual reference)
+- Soft sage/mint green backgrounds (#DAE6D8)
+- White rounded cards with subtle shadows
+- Edge-to-edge photography filling cards
+- Dark forest green (#0A0E0C) for text and tab bars
+- Nature-inspired, serene, minimalistic
+- Rounded shapes everywhere
+- Clean sans-serif typography
+
+### Reference 2: "Travel App UI Kit" by BRIGHTSCOUT
+- Clean card-based layout with generous spacing
+- Photography as the hero element — images do the talking
+- Muted teal/green accent colors
+- Content-first design, minimal chrome
+
+### The vibe in one sentence:
+**"Airbnb clarity meets nature-inspired calm."** Not a dark fintech dashboard. Not a generic startup page. Think: premium travel journal that feels like opening a window to fresh air.
+
+---
+
+## EXACT COLOR PALETTE
+
+```
+Background:        #DAE6D8  (sage/mint — the dominant screen color)
+Cards:             #FFFFFF  (white with subtle shadow)
+Primary CTA:       #2D5A3D  (dark forest green — buttons, links, accents)
+CTA Hover:         #1E3F2B  (deeper green on hover)
+Secondary Surface: #E8F0E6  (lighter mint — for pills, badges, subtle highlights)
+Text Primary:      #121814  (near-black with green undertone)
+Text Secondary:    #5A6B5E  (muted sage-gray)
+Text Tertiary:     #8A9B8E  (lighter gray-green for captions)
+Accent Gold:       #C4A265  (for "Tourist Essential" badges)
+Accent Sky:        #5B9BD5  (for "Local Pick" badges)
+Accent Green:      #6B9B74  (for "SideQuest" badges)
+Border/Divider:    #C8D7CD  (subtle sage-tinted border)
+```
+
+---
+
+## PAGE STRUCTURE
+
+### 1. HERO SECTION
+- Full viewport height
+- Large headline: **"so the trip doesn't die in the groupchat"** (this IS the headline — it's the brand line)
+- Subheadline: "Discover hidden gems. Plan with friends. Actually go." or similar
+- CTA button: **"Join the Waitlist"** (dark green pill button, white text, generous padding)
+  - Links to a simple email capture (Mailchimp embed, Typeform, or just a styled input + button)
+- Optional secondary CTA: "Learn more ↓"
+- Background: the sage #DAE6D8 color with either:
+  - A large hero image of friends traveling (use a high-quality Unsplash travel photo — group of friends exploring a European city)
+  - OR a mockup of the app on an iPhone (if you can generate one)
+  - OR just clean typography on sage with subtle animated elements
+- The SideQuest logo/wordmark top-left. If no logo file, just use clean bold text "SideQuest" in dark green
+
+### 2. PROBLEM SECTION
+- Short, punchy copy about the groupchat problem
+- Something like:
+  - "Every trip starts the same way"
+  - Show a fake iMessage thread mockup:
+    - "we should go to barcelona!!" → "omg yes" → "when?" → "idk u pick" → "someone find stuff to do" → [Read by everyone, replied by no one]
+  - Then: "SideQuest picks up where the groupchat gives up."
+- Visual: mock iMessage bubbles (gray/blue chat bubbles) that fade out, transitioning into the SideQuest UI
+- Background: white card on sage, or alternate to white background section
+
+### 3. FEATURES SECTION (3 columns or stacked cards)
+
+**Card 1: Discover**
+- Icon: compass or map pin
+- Title: "Swipe through hidden gems"
+- Body: "Our curators find the spots guidebooks miss — secret rooftop bars, locals-only markets, underground jazz clubs. Swipe right on what excites you."
+- Visual: mockup of the swipe card UI (a card with a travel photo, activity name overlay, and heart/X buttons below)
+
+**Card 2: Plan Together**
+- Icon: people/group
+- Title: "Your crew, one place"
+- Body: "Create a trip, invite friends with a code, propose activities, and vote on what to do. No more 'idk what do you want to do?'"
+- Visual: mockup of the trip view with member avatars and vote counts
+
+**Card 3: Go for Real**
+- Icon: airplane or flag
+- Title: "Itineraries that actually happen"
+- Body: "Top-voted activities become your itinerary. Everyone agreed, nobody's left out, and the trip actually happens."
+- Visual: mockup of an itinerary timeline
+
+Each card should be a white rounded rectangle on the sage background with subtle shadow, matching the Tino card style.
+
+### 4. CONTENT TYPES SECTION
+- Show the three content categories visually:
+  - 🟢 SideQuest — "Hidden gems worth discovering"
+  - 🔵 Local Pick — "What residents actually do"  
+  - 🟡 Tourist Essential — "Worthwhile mainstream (not traps)"
+- Each as a horizontal card or badge with an example activity and photo
+- Examples:
+  - SideQuest: "Secret speakeasy behind a laundromat in Barcelona's Gothic Quarter"
+  - Local Pick: "The €2 croissant shop every Parisian actually goes to"
+  - Tourist Essential: "Park Güell — but go at 7am when it's empty"
+
+### 5. CITIES SECTION
+- "Coming first to" with city names or flags:
+  - 🇪🇸 Barcelona, 🇬🇧 London, 🇫🇷 Paris, 🇮🇹 Rome, 🇯🇵 Tokyo, 🇦🇺 Sydney
+- Clean grid or horizontal scroll of city cards with travel photos
+- "More cities coming soon. Tell us where you're headed →"
+
+### 6. SOCIAL PROOF / FOR WHOM
+- "Built for study abroad students" 
+- "Planning a semester in Europe? A summer in Asia? SideQuest makes sure you don't waste it scrolling TripAdvisor reviews in your hostel."
+- Optional: if we have any early testers, add quotes. Otherwise skip or use aspirational copy.
+
+### 7. WAITLIST CTA (BOTTOM)
+- Repeat the email capture
+- "Be first to explore. Join the waitlist."
+- Dark green button
+- "Launching Spring 2026" or similar
+
+### 8. FOOTER
+- "SideQuest" wordmark
+- Links: About, Contact, Instagram, Twitter/X
+- "Made with ☕ in Ann Arbor, MI"
+- © 2026 SideQuest
+
+---
+
+## DESIGN RULES
+
+1. **Typography:** Use Inter, DM Sans, or similar clean sans-serif from Google Fonts. Headlines bold, body regular. Let the text breathe.
+
+2. **Spacing:** Generous. Every section has lots of padding (80-120px vertical between sections). Cards have 24-32px internal padding. Nothing should feel cramped.
+
+3. **Cards:** White (#FFFFFF) with subtle box-shadow (`0 2px 8px rgba(0,0,0,0.06)`), border-radius 16-20px. This is the core visual pattern from the Tino concept.
+
+4. **Buttons:** 
+   - Primary: `#2D5A3D` background, white text, border-radius 50px (full pill), padding 16px 32px, font-weight 600
+   - Secondary: transparent, `#2D5A3D` border, `#2D5A3D` text
+   - Hover: darken slightly, subtle scale transform
+
+5. **Images:** Use high-quality Unsplash travel photos. Search terms: "friends traveling europe", "barcelona street", "tokyo temple", "rome sunset", "group travel adventure". Make them feel authentic, not stocky.
+
+6. **Animations:** Subtle scroll-triggered fade-in for sections. Nothing flashy. The Tino concept is calm and intentional.
+
+7. **Mobile responsive:** Must look great on phone since our users are mobile-first study abroad students.
+
+8. **No dark mode needed** for the landing page. Light sage is the vibe.
+
+9. **Badges/pills:** Small rounded pills with category colors (#6B9B74 green for SideQuest, #5B9BD5 blue for Local Pick, #C4A265 gold for Tourist Essential) on light tinted backgrounds.
+
+10. **The iMessage mockup** in the problem section should look like actual iOS messages — gray bubbles on left (incoming), blue on right (sent), with the rounded shape and spacing of real iMessages. This is the emotional hook of the page.
+
+---
+
+## WAITLIST FORM
+
+The email capture should actually work. Options:
+- Mailchimp embedded form (I can provide the embed code later)
+- Simple form that posts to a Google Sheet via Apps Script
+- Buttondown, ConvertKit, or any free email service embed
+- For now, just build the UI and I'll wire up the backend later. Make the input + button look polished.
+
+Input field: white background, subtle sage border, placeholder "your@email.com"
+Button: dark green pill "Join the Waitlist"
+Success state: "You're in! We'll be in touch 🎒" with a subtle check animation
+
+---
+
+## TONE OF VOICE
+
+The copy should feel like talking to a friend, not a corporate product page. Casual but confident. A little cheeky. Think:
+- ✅ "so the trip doesn't die in the groupchat"
+- ✅ "No more 'idk what do you want to do?'"
+- ✅ "The spots guidebooks miss"
+- ❌ "Leverage our AI-powered recommendation engine"  
+- ❌ "Streamline your collaborative travel planning workflow"
+- ❌ "Join our community of global explorers"
+
+---
+
+## TECH NOTES
+
+- React + Tailwind preferred, but vanilla HTML/CSS/JS is fine too
+- Single page, no routing needed
+- Smooth scroll between sections
+- Deploy to the Replit URL
+- Make sure it loads fast — optimize images, lazy load below-fold content
+- Add basic meta tags for SEO and Open Graph (title, description, image for social sharing)
+
+---
+
+## REFERENCE LINKS
+
+- Tino Dribbble concept: https://dribbble.com/shots/7137800-Travel-App-UI-kit
+- BRIGHTSCOUT Dribbble: search "BRIGHTSCOUT travel app UI kit dribbble"
+- Airbnb.com (for layout/spacing inspiration)
+- Color palette reference: Tino's exact colors are #90B297, #0A0E0C, #DAE6D8, #B3C8B6, #6B9B74

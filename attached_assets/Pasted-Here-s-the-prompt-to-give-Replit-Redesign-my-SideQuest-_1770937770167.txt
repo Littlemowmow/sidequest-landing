@@ -1,0 +1,87 @@
+Here's the prompt to give Replit:
+
+---
+
+**Redesign my SideQuest landing page. The current version looks like an REI hiking catalogue — sage green, "Find Your True North," nature-documentary energy. That's wrong. SideQuest is a Gen Z travel app that takes trips out of group chat purgatory. The vibe is Pokémon + Red Bull + GoPro + TikTok travel edits. Think: your friend group actually booking that rooftop bar in Barcelona, horseback riding in Mongolia, climbing a volcano in Iceland, not "find your true north together."**
+
+**Brand DNA & Energy:**
+- Adventurous but urban AND wild — rooftop bars in Tokyo AND cliff jumping in Croatia AND horseback riding in Mongolia
+- Pokémon-esque: collectible experiences, a mascot with personality, gamified discovery
+- Red Bull / GoPro energy: bold, action-packed, "you had to be there" moments
+- TikTok travel edit aesthetic: fast cuts, bold text, the content Gen Z actually shares
+- The energy of your friend saying "guys we HAVE to do this" not a park ranger saying "discover the wild"
+
+**Logo / Mascot:**
+- Inspired by Teddiursa from Pokémon — a small adventurous bear character. NOT a realistic bear. Think cute but bold, like a mascot you'd see on a sticker or pin. Round face, crescent moon marking on forehead, big curious eyes, holding a little compass or map. The style should feel like a Pokémon or adventure game character — expressive, slightly chibi proportions, full of personality. Use our brand orange (#FF6B35) as the primary color with dark navy (#0F172A) accents. This mascot should feel like the app's guide/companion, not just a logo.
+
+**Color Palette (use these exact colors):**
+- Primary: Electric Orange #FF6B35
+- Accent: Electric Crimson #E11D48  
+- Action: Vivid Cyan #06B6D4
+- Success: Emerald #10B981
+- Background: Deep Navy #0F172A and #1E293B
+- Text: White and rgba(255,255,255,0.7)
+- NO sage green, NO muted earth tones, NO beige
+
+**Typography:**
+- Headlines: Something bold and punchy like Dela Gothic One or similar heavy display font
+- Body: DM Sans or similar clean sans-serif
+- NO serif fonts, NO script/cursive, nothing that looks "elegant" or "serene"
+
+**Page Structure:**
+
+**Section 1 — Hero:**
+- Big bold headline. Something like "Don't Let the Trip Die in the Group Chat" or "Stop Talking About It. Actually Go." NOT "Find Your True North Together"
+- Subtext that sounds like a friend talking: "Your group chat is full of sick travel ideas that never happen. SideQuest fixes that."
+- CTA button: "Join the Waitlist" with orange gradient and glow
+- Right side: phone mockup showing the app's discover feed with activity cards (rooftop bars, hidden beaches, street food tours, volcano hikes — NOT just nature/hiking). Cards should show the activity type badges: "SideQuest" (orange), "Local Pick" (cyan), "Tourist Essential" (emerald). Show vote indicators from friends on the cards.
+- Animated background: subtle gradient glow movement, grid pattern overlay, dark and bold
+- The Teddiursa-inspired bear mascot should appear somewhere in the hero — maybe peeking out, or as part of the logo lockup
+
+**Section 2 — The Problem (keep the iMessage mockup concept, it works):**
+- Left side: iMessage group chat mockup showing friends sharing travel inspo that dies in the chat. Messages like "guys we need to go here" / "wait where is that??" / "we should plan something" / then a big red X or "dead" overlay showing the conversation died
+- Right side: Bold headline like "Every Trip Starts the Same Way" with subtext about how inspiration dies in group chats. Include stats if possible (like "87% of travel plans shared in group chats never happen" — can be tongue-in-cheek)
+
+**Section 3 — How It Works (3 features):**
+- Card 1: "Discover" — We surface the spots your group actually wants to hit. Hidden gems, local secrets, stuff you won't find on page 1 of Google. Icon: compass or map pin
+- Card 2: "Squad Vote" — No more "idk what do you guys want to do." Everyone votes, the crew decides together. Icon: thumbs up or checkmark  
+- Card 3: "Lock It In" — Turn "we should totally go" into an actual itinerary with dates, times, and a plan. Icon: calendar or lock
+- Each card should have a bold icon, punchy copy, and hover animation
+- Use terms that feel Gen Z, not corporate
+
+**Section 4 — Activity Categories:**
+- Show three content types with big visual cards:
+  - "SideQuest" — Hidden gems worth discovering (example: secret speakeasy in Barcelona, volcano hike in Iceland, street food alley in Tokyo)
+  - "Local Pick" — What residents actually do (example: the ramen shop with no English menu, the beach only locals know)
+  - "Tourist Essential" — The mainstream stuff that's actually worth it (example: Sagrada Familia, but here's how to skip the line)
+- Use real-feeling example activities, not generic "explore nature" — think horseback riding in Mongolia, rooftop cinema in London, midnight food tour in Rome
+
+**Section 5 — Destinations:**
+- "Coming First To..." with city cards: Barcelona, London, Paris, Rome, Tokyo, Sydney
+- Each card has a photo and country flag emoji
+- "More cities coming soon →" link
+- Keep this section clean, the current version is fine structurally
+
+**Section 6 — Email Capture CTA:**
+- Bold headline: "Get Early Access" or "Join the Quest"
+- Subtext with urgency/exclusivity
+- Email input + "Join" button
+- The Teddiursa bear mascot should appear here too — maybe excited/celebrating
+
+**Section 7 — Footer:**
+- Simple: logo, social links (Instagram, TikTok, Twitter), copyright
+- Dark background
+
+**General Design Rules:**
+- Dark mode dominant (navy backgrounds), NOT light/sage/cream
+- Orange glows and accent lighting throughout
+- Subtle animations: float effects, gradient shifts, hover states with glow
+- Cards should have glass-morphism or subtle border glow on hover
+- Everything should feel bold, energetic, and young — like a gaming app or hype brand, not a meditation app
+- Mobile responsive
+- Add subtle grid pattern overlays and radial gradient glows for depth
+- The overall feel when someone lands on this page should be "oh this is cool" not "oh this is calming"
+
+---
+
+That's comprehensive enough for Replit to run with. The key things I'd emphasize if it comes back too tame: push on the Teddiursa mascot being actually Pokémon-styled (not a generic bear icon), the copy sounding like a friend not a brand, and the dark/orange energy over anything green or serene.

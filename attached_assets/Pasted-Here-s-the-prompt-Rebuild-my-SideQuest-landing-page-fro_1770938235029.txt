@@ -1,0 +1,143 @@
+Here's the prompt:
+
+---
+
+**Rebuild my SideQuest landing page from scratch. SideQuest is a travel app for friend groups — it takes trip planning out of group chat where ideas die and turns them into actual plans. Target audience is college-aged / Gen Z travelers, especially study abroad students.**
+
+**DESIGN PHILOSOPHY — READ THIS FIRST:**
+
+This needs to look like a senior product designer at a top startup built it, not like an AI generated it. Here's what that means concretely:
+
+Things that make a site look vibecoded (AVOID ALL OF THESE):
+- Gradient blob backgrounds floating around
+- Glass morphism on everything
+- Every card having the same border-radius, same padding, same hover glow
+- Purple-to-blue gradients
+- "Trusted by 10,000+ users" social proof sections with fake logos when you're a pre-launch startup
+- Generic stock photos of people laughing at laptops
+- Symmetrical 3-column grids for every section
+- Every single element having an animation or glow
+- Sans-serif font + rounded cards + gradient buttons = the entire design system
+- Cookie-cutter SaaS landing page structure (hero → logos → features → testimonials → pricing → CTA)
+- Excessive whitespace with no visual tension
+- Drop shadows on everything
+
+What makes a site look professionally designed (DO THESE):
+- A real typographic hierarchy — one display font used with intention, not slapped on every heading
+- Restraint. Pick 2-3 moments on the page that are visually "loud" and let everything else breathe
+- Asymmetry. Not every section needs to be centered. Let content shift left and right
+- A spacing system you actually stick to (8px grid)
+- One signature interaction or visual detail that feels custom, not a library default
+- Editorial-quality copywriting — short, punchy, opinionated
+- Intentional contrast between dense sections and minimal ones
+- Real visual hierarchy where the eye knows exactly where to go
+- Photography or illustration style that's consistent and specific, not "travel stock photos"
+
+**COLOR PALETTE:**
+
+Rich, warm, earth-forward but with energy. Think volcanic landscape — deep warm blacks, ember glows, moss and stone. Nature that's alive and a little dangerous, not a spa.
+
+- Background primary: `#141210` (warm obsidian black)
+- Background secondary: `#262220` (volcanic rock)
+- Surface/cards: `#2E2A26` (warm dark brown)
+- Primary accent: `#E8642D` (ember orange — use sparingly for CTAs and key moments)
+- Secondary: `#3D5A3E` (deep moss green — NOT sage, think actual forest floor)
+- Text primary: `#EDE8E3` (ash white — warm, not stark)
+- Text secondary: `#9C9590` (stone gray)
+- Highlight/links: `#2BA4A4` (warm teal)
+- Danger/energy: `#D43D2F` (lava red — for emphasis moments)
+
+Important: Orange is the accent, not the whole personality. It should feel like embers in a dark room — when you see it, it means something. Don't put it on every border, every icon, every hover state.
+
+**TYPOGRAPHY:**
+
+Pick ONE distinctive display font for headlines (something with weight and character — look at fonts like Satoshi Black, General Sans Bold, Clash Display, or Cabinet Grotesk Bold — pick ONE, not multiple). Pair it with a clean readable body font. The headline font should only appear on major section headers and the hero — not on every card title and label.
+
+Use a proper type scale: don't just eyeball sizes. Have a clear hierarchy: hero headline → section titles → card titles → body → captions. Each level should feel intentionally different.
+
+**NO LOGO. No mascot. No icon.** Just the wordmark "SideQuest" in the display font. Keep it simple. A great wordmark beats a bad logo every time.
+
+**PAGE STRUCTURE:**
+
+Don't follow a generic SaaS template. Think more like an editorial product page or a brand launch page. Here's the content flow:
+
+**1. Hero**
+
+This is the only section that should feel "big." Everything else should feel more editorial and grounded.
+
+Headline options (pick what works best with the design, or write something better):
+- "The trip shouldn't die in the group chat."
+- "Stop planning. Start going."
+- "Your group chat is where trips go to die."
+
+One line of subtext max. Then a single email capture input with a CTA button — no "learn more" secondary button, no "watch demo" link. One action: join the waitlist.
+
+For the right side or background: a phone mockup showing the app's activity feed is fine, but make it feel integrated into the design, not a floating device PNG. Or skip the mockup entirely and use a bold typographic-only hero — sometimes that's more striking than a fake phone.
+
+If you use images, use atmospheric travel photography — not "friends posing at a landmark" but the kind of shots people actually post on their stories: motion-blurred night markets, first-person perspective on a cliff edge, a crowded alley with lanterns, the view from a rooftop at golden hour. Moody, cinematic, real.
+
+**2. The Problem**
+
+iMessage group chat mockup showing a conversation that dies. This is the strongest concept from the current site — keep it but execute it better. The messages should feel real:
+
+- "just saw this place in barcelona 🤯" 
+- "wait send the link"
+- "ok so are we actually doing spring break or"
+- "im down if everyone else is"
+- "lets figure it out later"
+- [read 3 days ago]
+
+Then next to it or below it, the counter-narrative: what SideQuest does instead. Don't over-explain. Two or three tight sentences max. Something like: "Every friend group has a graveyard of trips that never happened. SideQuest is where ideas become itineraries and itineraries become memories."
+
+**3. How It Works**
+
+NOT a 3-column card grid. Find a more interesting layout — maybe a vertical scroll with alternating left-right content, or a numbered list with staggered typography, or a single horizontal scroll. Three steps:
+
+1. Discover — We find the spots worth going to. Hidden gems, local favorites, the stuff that doesn't show up on page one of Google. (categories: SideQuest / Local Pick / Tourist Essential)
+2. Vote — Your whole group weighs in. No more "idk what do you wanna do." Everyone votes, majority wins.
+3. Go — It becomes a real itinerary. Dates, directions, details. The trip actually happens.
+
+Each step should have a single visual (could be an icon, a small illustration, or a cropped app screenshot) and 2-3 lines of copy. Don't write paragraphs.
+
+**4. Content Categories**
+
+Show what kind of activities SideQuest surfaces. Three types:
+
+- **SideQuest** — The hidden gems. "A speakeasy behind a laundromat in Barcelona." "A volcanic hot spring that doesn't show up on Google Maps." "Horseback riding through the Mongolian steppe."
+- **Local Pick** — What residents actually do. "The ramen shop with no English menu." "The park where locals go on Sundays." "The bar your Airbnb host recommends."  
+- **Tourist Essential** — The mainstream stuff that's actually worth your time. "Yes, see the Sagrada Familia. Here's how to not wait in line for 3 hours."
+
+Use real-sounding example activities. Make them vivid and specific, not generic.
+
+**5. Cities**
+
+"Coming first to..." with 6 city cards: Barcelona, London, Paris, Rome, Tokyo, Sydney. Each with a country flag. Simple grid, clean execution. "More cities soon" link. Don't overdesign this section — let it be clean and informational.
+
+**6. Final CTA**
+
+Email capture again. Short, direct headline. Something like "Get in early." or "Join the waitlist." with the email input. Don't repeat the hero copy — say something new and brief.
+
+**7. Footer**
+
+Minimal. Wordmark, links to Instagram and TikTok, copyright line. Done.
+
+**INTERACTIONS AND ANIMATION:**
+
+Less is more. Pick a maximum of 3 animated moments on the entire page:
+1. Hero entrance (subtle fade + slide, nothing bouncy)
+2. One scroll-triggered reveal for the problem section
+3. Hover state on the CTA button
+
+Everything else should be static or have very subtle CSS transitions (opacity, transform on hover — 200-300ms, ease-out). No spring physics, no bouncing, no parallax scrolling, no floating animations. Those all scream "template."
+
+**RESPONSIVE:**
+
+Mobile-first. The site should look great on an iPhone 14 screen. Sections stack cleanly. Type scales down proportionally. The phone mockup (if you use one) should hide or restructure on mobile. Don't just shrink the desktop layout.
+
+**OVERALL FEEL:**
+
+When someone lands on this page, it should feel like a real product built by people who know what they're doing. It should feel warm (the earth tones), bold (the typography), and confident (the restraint). It should NOT feel like a template, a hackathon project, or an AI-generated landing page. 
+
+The single best test: would this page look out of place on Product Hunt's front page next to well-funded startups? If no, it's not good enough.
+
+---
