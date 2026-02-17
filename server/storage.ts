@@ -1,6 +1,6 @@
 import { type WaitlistEntry, type InsertWaitlistEntry, waitlistEntries } from "@shared/schema";
 import { db } from "./db";
-import { eq } from "drizzle-orm";
+import { eq, count } from "drizzle-orm";
 
 export interface IStorage {
   createWaitlistEntry(entry: InsertWaitlistEntry): Promise<WaitlistEntry>;
@@ -26,8 +26,8 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getWaitlistCount(): Promise<number> {
-    const result = await db.select().from(waitlistEntries);
-    return result.length;
+    const [result] = await db.select({ count: count() }).from(waitlistEntries);
+    return result.count;
   }
 }
 

@@ -1,5 +1,5 @@
 import type { Express } from "express";
-import { createServer, type Server } from "http";
+import { type Server } from "http";
 import { storage } from "./storage";
 import { waitlistRequestSchema } from "@shared/schema";
 import { randomBytes } from "crypto";
@@ -43,7 +43,7 @@ export async function registerRoutes(
       });
 
       res.status(201).json({ referralCode: entry.referralCode });
-    } catch (error: any) {
+    } catch (error) {
       console.error("Waitlist error:", error);
       res.status(500).json({ error: "Something went wrong" });
     }

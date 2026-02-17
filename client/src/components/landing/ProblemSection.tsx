@@ -3,21 +3,21 @@ import { motion, useInView } from "framer-motion";
 import { ArrowDown, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 
+const CHAT_MESSAGES = [
+  { text: "guys we NEED to plan this Barcelona trip", sender: "Sarah", isMe: false },
+  { text: "I'm so down. When tho??", sender: "Mike", isMe: false },
+  { text: "June? But idk about budget", sender: "Jess", isMe: false },
+  { text: "let's just figure it out lol", sender: "You", isMe: true },
+  { text: "we say that every time 😭", sender: "Sarah", isMe: false },
+  { text: "ok someone just make a plan", sender: "Mike", isMe: false },
+  { text: "...", sender: "", isMe: true },
+];
+
 function AutoPlayChat() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
   const [visibleMessages, setVisibleMessages] = useState(0);
   const [showSolution, setShowSolution] = useState(false);
-
-  const messages = [
-    { text: "guys we NEED to plan this Barcelona trip", sender: "Sarah", isMe: false },
-    { text: "I'm so down. When tho??", sender: "Mike", isMe: false },
-    { text: "June? But idk about budget", sender: "Jess", isMe: false },
-    { text: "let's just figure it out lol", sender: "You", isMe: true },
-    { text: "we say that every time 😭", sender: "Sarah", isMe: false },
-    { text: "ok someone just make a plan", sender: "Mike", isMe: false },
-    { text: "...", sender: "", isMe: true },
-  ];
 
   useEffect(() => {
     if (!isInView) return;
@@ -25,7 +25,7 @@ function AutoPlayChat() {
     const interval = setInterval(() => {
       i++;
       setVisibleMessages(i);
-      if (i >= messages.length) {
+      if (i >= CHAT_MESSAGES.length) {
         clearInterval(interval);
         setTimeout(() => setShowSolution(true), 600);
       }
@@ -41,7 +41,7 @@ function AutoPlayChat() {
       </div>
 
       <div className="flex-1 overflow-hidden px-3 py-3 space-y-1.5">
-        {messages.slice(0, visibleMessages).map((msg, i) => (
+        {CHAT_MESSAGES.slice(0, visibleMessages).map((msg, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, y: 8, scale: 0.95 }}

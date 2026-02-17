@@ -68,7 +68,7 @@ export function WaitlistSection() {
       setDestination("");
       setTravelDate("");
       setUniversity("");
-    } catch (err: any) {
+    } catch {
       setErrorMsg("Something went wrong. Please try again.");
       setStatus("idle");
     }

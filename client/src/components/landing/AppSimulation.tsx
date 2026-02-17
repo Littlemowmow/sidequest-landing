@@ -46,8 +46,15 @@ const MOCK_MESSAGES = [
   { user: "Alex", avatar: "https://i.pravatar.cc/150?u=4", text: "Team Tulum!!", color: "bg-orange-100 text-orange-700" }
 ];
 
+interface Expense {
+  title: string;
+  payer: string;
+  amount: number;
+  icon: string;
+}
+
 // Mock Expenses Data keyed by Destination ID
-const MOCK_EXPENSES: any = {
+const MOCK_EXPENSES: Record<number, Expense[]> = {
   1: [ // Tulum
     { title: "Villa Deposit", payer: "Sarah", amount: 1200, icon: "🏠" },
     { title: "Beach Club Cabana", payer: "Mike", amount: 450, icon: "🍹" },
@@ -836,7 +843,7 @@ export function AppSimulation() {
                  <div className="relative z-10">
                     <div className="text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-1">Total Trip Cost</div>
                     <div className="text-3xl font-bold font-display flex items-baseline gap-1">
-                       ${currentExpenses.reduce((acc: number, curr: any) => acc + curr.amount, 0).toLocaleString()}
+                       ${currentExpenses.reduce((acc: number, curr: Expense) => acc + curr.amount, 0).toLocaleString()}
                     </div>
                     <div className="mt-3 flex gap-2">
                        <div className="flex -space-x-1.5">
@@ -854,7 +861,7 @@ export function AppSimulation() {
               {/* Expenses List */}
               <div className="flex-1 overflow-y-auto pr-1 -mr-1 space-y-2 mb-4">
                  <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Recent Payments</h3>
-                 {currentExpenses.map((expense: any, i: number) => (
+                 {currentExpenses.map((expense: Expense, i: number) => (
                     <motion.div 
                        key={i}
                        initial={{ opacity: 0, y: 10 }}

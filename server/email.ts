@@ -128,8 +128,9 @@ export async function sendWaitlistConfirmationEmail(params: {
     });
 
     return { success: true };
-  } catch (error: any) {
-    console.error("Failed to send waitlist confirmation email:", error?.message || error);
-    return { success: false, error: error?.message || "Unknown email error" };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Unknown email error";
+    console.error("Failed to send waitlist confirmation email:", message);
+    return { success: false, error: message };
   }
 }
