@@ -32,17 +32,17 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-white text-sm mb-5">Company</h4>
             <ul className="space-y-3 text-sm text-white/30">
-              <li><a href="#" className="hover:text-orange-400 transition-colors" data-testid="link-footer-about">About</a></li>
-              <li><a href="#" className="hover:text-orange-400 transition-colors" data-testid="link-footer-blog">Blog</a></li>
-              <li><a href="#" className="hover:text-orange-400 transition-colors" data-testid="link-footer-contact">Contact</a></li>
+              <li><span className="cursor-default" data-testid="link-footer-about">About</span></li>
+              <li><span className="cursor-default" data-testid="link-footer-blog">Blog</span></li>
+              <li><span className="cursor-default" data-testid="link-footer-contact">Contact</span></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-bold text-white text-sm mb-5">Legal</h4>
             <ul className="space-y-3 text-sm text-white/30">
-              <li><a href="#" className="hover:text-orange-400 transition-colors" data-testid="link-footer-privacy">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-orange-400 transition-colors" data-testid="link-footer-terms">Terms of Service</a></li>
+              <li><span className="cursor-default" data-testid="link-footer-privacy">Privacy Policy</span></li>
+              <li><span className="cursor-default" data-testid="link-footer-terms">Terms of Service</span></li>
             </ul>
           </div>
 

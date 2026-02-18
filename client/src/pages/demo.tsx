@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
-import { motion, useScroll, useSpring, useInView, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useSpring, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, MapPin, Users, Calendar, DollarSign, Plane, Clock, Sun, Cloud, Heart, X, Check, Crown, ArrowUp, Sparkles } from "lucide-react";
+import { ChevronDown, MapPin, Users, Calendar, DollarSign, Sun, Cloud, Heart, X, Check, Crown, ArrowUp, Sparkles } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
 import confetti from "canvas-confetti";
 
@@ -744,6 +744,14 @@ function CTASection() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
   const hasFired = useRef(false);
+  const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    fetch("/api/waitlist/count")
+      .then(r => r.json())
+      .then(data => { if (data.count > 0) setWaitlistCount(data.count); })
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     if (isInView && !hasFired.current) {
@@ -760,6 +768,10 @@ function CTASection() {
       }, 300);
     }
   }, [isInView]);
+
+  const countText = waitlistCount
+    ? `${waitlistCount.toLocaleString()}+ people already signed up`
+    : "Join hundreds already signed up";
 
   return (
     <div ref={ref} className="min-h-screen flex items-center justify-center px-4 py-20 relative">
@@ -787,7 +799,7 @@ function CTASection() {
           </Button>
         </motion.div>
         <div className="mt-8 text-white/25 text-sm font-medium">
-          1,200+ people already signed up
+          {countText}
         </div>
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

@@ -16,6 +16,8 @@ export async function registerRoutes(
         return res.status(400).json({ error: "Invalid input", details: parsed.error.flatten() });
       }
 
+      parsed.data.email = parsed.data.email.toLowerCase().trim();
+
       const existing = await storage.getWaitlistEntryByEmail(parsed.data.email);
       if (existing) {
         return res.status(409).json({ error: "already_registered", referralCode: existing.referralCode });
