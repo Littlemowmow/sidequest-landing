@@ -20,6 +20,15 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [isMobileMenuOpen]);
+
   const scrollToSection = (id: string) => {
     setIsMobileMenuOpen(false);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -80,7 +89,7 @@ export function Navbar() {
         
         <motion.div
           className="absolute bottom-0 left-0 right-0 h-[2px] bg-sq-primary origin-left"
-          style={{ scaleX, opacity: isScrolled ? 1 : 0 }}
+          style={{ scaleX, opacity: isScrolled && !isMobileMenuOpen ? 1 : 0 }}
         />
       </nav>
 

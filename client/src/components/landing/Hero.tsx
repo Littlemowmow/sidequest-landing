@@ -1,6 +1,9 @@
+import { useCallback } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, PlayCircle } from "lucide-react";
+
+const MOBILE_BREAKPOINT = 1024;
 
 export function Hero() {
   const scrollToWaitlist = () => {
@@ -14,14 +17,15 @@ export function Hero() {
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["8deg", "-8deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-8deg", "8deg"]);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (window.innerWidth < MOBILE_BREAKPOINT) return;
     const rect = e.currentTarget.getBoundingClientRect();
     x.set(e.clientX / rect.width - 0.5);
     y.set(e.clientY / rect.height - 0.5);
-  };
+  }, [x, y]);
 
   return (
-    <section 
+    <section
       onMouseMove={handleMouseMove}
       className="relative min-h-[90vh] flex flex-col justify-center px-4 pt-28 pb-16 overflow-hidden"
     >

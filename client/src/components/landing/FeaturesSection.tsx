@@ -22,7 +22,7 @@ function SwipeVoteMockup() {
         <div className="text-xs text-white/40">Barcelona Trip &middot; 5 members</div>
       </div>
       <div className="relative rounded-2xl overflow-hidden shadow-lg mb-4 aspect-[3/4] border border-white/10">
-        <img src="/images/hero-barcelona.jpg" className="w-full h-full object-cover" alt="Barcelona beach" />
+        <img src="/images/hero-barcelona.jpg" loading="lazy" className="w-full h-full object-cover" alt="Barcelona beach" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
         <div className="absolute bottom-3 left-3 right-3 text-white">
           <div className="text-lg font-bold font-display">Barceloneta Beach</div>

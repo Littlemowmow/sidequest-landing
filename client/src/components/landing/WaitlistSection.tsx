@@ -174,7 +174,8 @@ export function WaitlistSection() {
                     <select
                       value={travelDate}
                       onChange={(e) => setTravelDate(e.target.value)}
-                      className={`h-14 w-full bg-white/10 border border-white/10 rounded-2xl px-12 text-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-0 ${travelDate ? "text-white" : "text-white/40"}`}
+                      className={`h-14 w-full bg-white/10 border border-white/10 rounded-2xl px-12 text-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-0 ${travelDate ? "text-white" : "text-white/40"}`}
+                      style={{ WebkitAppearance: "none", MozAppearance: "none", appearance: "none" } as React.CSSProperties}
                       data-testid="select-travel-date"
                     >
                       {TIMELINE_OPTIONS.map((opt) => (

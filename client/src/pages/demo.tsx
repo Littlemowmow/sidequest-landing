@@ -8,6 +8,58 @@ import confetti from "canvas-confetti";
 
 const SECTION_COUNT = 9;
 
+const SECTION_IDS = ["hero", "imessage", "setup", "itinerary", "swipe", "vote", "schedule", "budget", "cta"];
+
+const IMESSAGE_MESSAGES = [
+  { text: "guys we NEED to plan this Barcelona trip", isMe: false, sender: "Sarah" },
+  { text: "I'm so down. When are we thinking??", isMe: false, sender: "Mike" },
+  { text: "June works for me but idk about budget", isMe: false, sender: "Jess" },
+  { text: "let's just figure it out lol", isMe: true, sender: "You" },
+  { text: "we say that every time and nothing happens 😭", isMe: false, sender: "Sarah" },
+];
+
+const ITINERARY_SLOTS = [
+  { time: "Morning", activity: "La Boqueria Market", icon: "🍊", category: "Food" },
+  { time: "Afternoon", activity: "Sagrada Familia", icon: "⛪", category: "Culture" },
+  { time: "Evening", activity: "Gothic Quarter Walk", icon: "🏛️", category: "Explore" },
+  { time: "Morning", activity: "Park Güell", icon: "🦎", category: "Culture", day: 2 },
+  { time: "Afternoon", activity: "Barceloneta Beach", icon: "🏖️", category: "Relax", day: 2 },
+  { time: "Evening", activity: "Tapas Crawl", icon: "🍷", category: "Food", day: 2 },
+];
+
+const SWIPE_CARDS = [
+  { name: "Hidden Speakeasy", icon: "🍸", tag: "Nightlife" },
+  { name: "Rooftop Sunset Yoga", icon: "🧘", tag: "Wellness" },
+  { name: "Secret Garden Brunch", icon: "🌿", tag: "Food" },
+];
+
+const VOTE_RESULTS = [
+  { name: "Hidden Speakeasy", votes: 4, total: 4, status: "Must Do", color: "bg-emerald-500" },
+  { name: "Rooftop Yoga", votes: 3, total: 4, status: "Group Pick", color: "bg-blue-500" },
+  { name: "Flamenco Show", votes: 2, total: 4, status: "", color: "bg-orange-500" },
+  { name: "Tapas Tour", votes: 2, total: 4, status: "", color: "bg-amber-500" },
+];
+
+const AI_INSIGHTS = [
+  { icon: "☀️", text: "Beach day → Wednesday (sunny)" },
+  { icon: "⛪", text: "Sagrada Familia at 9am (shorter lines)" },
+  { icon: "✈️", text: "Mike lands at 2pm (free afternoon first)" },
+];
+
+const BUDGET_PEOPLE = [
+  { name: "You", emoji: "😎", budget: "$500", color: "border-orange-500/30" },
+  { name: "Sarah", emoji: "👩", budget: "$400", color: "border-pink-500/30" },
+  { name: "Mike", emoji: "🧑", budget: "$350", color: "border-blue-500/30" },
+  { name: "Jess", emoji: "👧", budget: "$450", color: "border-emerald-500/30" },
+];
+
+const BUDGET_CATEGORIES = [
+  { name: "Stays", amount: "$560", pct: 40, color: "bg-orange-500" },
+  { name: "Food", amount: "$350", pct: 25, color: "bg-amber-500" },
+  { name: "Activities", amount: "$280", pct: 20, color: "bg-emerald-500" },
+  { name: "Transport", amount: "$210", pct: 15, color: "bg-blue-500" },
+];
+
 function SectionWrapper({ children, id, className = "" }: { children: React.ReactNode; id: string; className?: string }) {
   return (
     <section id={id} className={`min-h-screen flex items-center px-4 py-20 relative ${className}`}>
@@ -56,7 +108,7 @@ function HookText({ text }: { text: string }) {
 function SectionCounter({ current }: { current: number }) {
   if (current >= SECTION_COUNT) return null;
   return (
-    <div className="fixed bottom-6 right-6 z-50 text-white/20 font-mono text-sm font-bold tracking-wider">
+    <div className="fixed bottom-6 right-6 z-50 text-white/20 font-mono text-sm font-bold tracking-wider hidden md:block">
       {String(current).padStart(2, "0")} / {String(SECTION_COUNT).padStart(2, "0")}
     </div>
   );
@@ -67,21 +119,13 @@ function IMessageSection() {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
   const [visibleMessages, setVisibleMessages] = useState(0);
 
-  const messages = [
-    { text: "guys we NEED to plan this Barcelona trip", isMe: false, sender: "Sarah" },
-    { text: "I'm so down. When are we thinking??", isMe: false, sender: "Mike" },
-    { text: "June works for me but idk about budget", isMe: false, sender: "Jess" },
-    { text: "let's just figure it out lol", isMe: true, sender: "You" },
-    { text: "we say that every time and nothing happens 😭", isMe: false, sender: "Sarah" },
-  ];
-
   useEffect(() => {
     if (!isInView) return;
     let i = 0;
     const interval = setInterval(() => {
       i++;
       setVisibleMessages(i);
-      if (i >= messages.length) clearInterval(interval);
+      if (i >= IMESSAGE_MESSAGES.length) clearInterval(interval);
     }, 700);
     return () => clearInterval(interval);
   }, [isInView]);
@@ -105,7 +149,7 @@ function IMessageSection() {
                 <div className="w-6" />
               </div>
               <div className="space-y-2 mb-6">
-                {messages.slice(0, visibleMessages).map((msg, i) => (
+                {IMESSAGE_MESSAGES.slice(0, visibleMessages).map((msg, i) => (
                   <motion.div
                     key={i}
                     initial={{ opacity: 0, y: 10, scale: 0.95 }}
@@ -119,7 +163,7 @@ function IMessageSection() {
                   </motion.div>
                 ))}
               </div>
-              {visibleMessages >= messages.length && (
+              {visibleMessages >= IMESSAGE_MESSAGES.length && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -230,22 +274,13 @@ function SmartItinerarySection() {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
   const [visibleSlots, setVisibleSlots] = useState(0);
 
-  const slots = [
-    { time: "Morning", activity: "La Boqueria Market", icon: "🍊", category: "Food" },
-    { time: "Afternoon", activity: "Sagrada Familia", icon: "⛪", category: "Culture" },
-    { time: "Evening", activity: "Gothic Quarter Walk", icon: "🏛️", category: "Explore" },
-    { time: "Morning", activity: "Park Güell", icon: "🦎", category: "Culture", day: 2 },
-    { time: "Afternoon", activity: "Barceloneta Beach", icon: "🏖️", category: "Relax", day: 2 },
-    { time: "Evening", activity: "Tapas Crawl", icon: "🍷", category: "Food", day: 2 },
-  ];
-
   useEffect(() => {
     if (!isInView) return;
     let i = 0;
     const interval = setInterval(() => {
       i++;
       setVisibleSlots(i);
-      if (i >= slots.length) clearInterval(interval);
+      if (i >= ITINERARY_SLOTS.length) clearInterval(interval);
     }, 400);
     return () => clearInterval(interval);
   }, [isInView]);
@@ -275,7 +310,7 @@ function SmartItinerarySection() {
                 ))}
               </div>
               <div className="space-y-2.5">
-                {slots.slice(0, Math.min(visibleSlots, 3)).map((slot, i) => (
+                {ITINERARY_SLOTS.slice(0, Math.min(visibleSlots, 3)).map((slot, i) => (
                   <motion.div
                     key={i}
                     initial={{ opacity: 0, y: 15 }}
@@ -316,21 +351,15 @@ function SwipeSection() {
   const [swipeDir, setSwipeDir] = useState<string | null>(null);
   const [addedItems, setAddedItems] = useState<string[]>([]);
 
-  const cards = [
-    { name: "Hidden Speakeasy", icon: "🍸", tag: "Nightlife" },
-    { name: "Rooftop Sunset Yoga", icon: "🧘", tag: "Wellness" },
-    { name: "Secret Garden Brunch", icon: "🌿", tag: "Food" },
-  ];
-
   useEffect(() => {
     if (!isInView) return;
     let i = 0;
     const directions = ["right", "left", "right"];
     const timer = setInterval(() => {
-      if (i >= cards.length) { clearInterval(timer); return; }
+      if (i >= SWIPE_CARDS.length) { clearInterval(timer); return; }
       setSwipeDir(directions[i]);
       if (directions[i] === "right") {
-        setAddedItems(prev => [...prev, cards[i].name]);
+        setAddedItems(prev => [...prev, SWIPE_CARDS[i].name]);
       }
       setTimeout(() => {
         setSwipeDir(null);
@@ -360,7 +389,7 @@ function SwipeSection() {
                 <div className="text-white font-display font-bold">Discover</div>
               </div>
               <div className="relative h-[300px] flex items-center justify-center mb-4">
-                {currentCard < cards.length ? (
+                {currentCard < SWIPE_CARDS.length ? (
                   <motion.div
                     key={currentCard}
                     animate={{
@@ -371,9 +400,9 @@ function SwipeSection() {
                     transition={{ duration: 0.5 }}
                     className="absolute inset-4 bg-gradient-to-br from-white/10 to-white/5 border border-white/10 rounded-3xl p-6 flex flex-col items-center justify-center text-center"
                   >
-                    <div className="text-5xl mb-4">{cards[currentCard].icon}</div>
-                    <div className="text-white font-bold text-lg mb-1">{cards[currentCard].name}</div>
-                    <div className="text-white/30 text-xs font-bold uppercase tracking-wider">{cards[currentCard].tag}</div>
+                    <div className="text-5xl mb-4">{SWIPE_CARDS[currentCard].icon}</div>
+                    <div className="text-white font-bold text-lg mb-1">{SWIPE_CARDS[currentCard].name}</div>
+                    <div className="text-white/30 text-xs font-bold uppercase tracking-wider">{SWIPE_CARDS[currentCard].tag}</div>
                     {swipeDir === "right" && (
                       <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="absolute top-4 right-4 bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full">
                         Added!
@@ -420,13 +449,6 @@ function GroupVoteSection() {
   const [fillPct, setFillPct] = useState(0);
   const [showTiebreaker, setShowTiebreaker] = useState(false);
 
-  const votes = [
-    { name: "Hidden Speakeasy", votes: 4, total: 4, status: "Must Do", color: "bg-emerald-500" },
-    { name: "Rooftop Yoga", votes: 3, total: 4, status: "Group Pick", color: "bg-blue-500" },
-    { name: "Flamenco Show", votes: 2, total: 4, status: "", color: "bg-orange-500" },
-    { name: "Tapas Tour", votes: 2, total: 4, status: "", color: "bg-amber-500" },
-  ];
-
   useEffect(() => {
     if (!isInView) return;
     const timer = setInterval(() => {
@@ -457,7 +479,7 @@ function GroupVoteSection() {
                 <div className="text-white font-display font-bold">Results</div>
               </div>
               <div className="space-y-4">
-                {votes.map((vote, i) => (
+                {VOTE_RESULTS.map((vote, i) => (
                   <div key={i}>
                     <div className="flex justify-between text-xs mb-1.5">
                       <span className="text-white/70 font-medium">{vote.name}</span>
@@ -511,12 +533,6 @@ function AIScheduleSection() {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
   const [phase, setPhase] = useState(0);
 
-  const insights = [
-    { icon: "☀️", text: "Beach day → Wednesday (sunny)" },
-    { icon: "⛪", text: "Sagrada Familia at 9am (shorter lines)" },
-    { icon: "✈️", text: "Mike lands at 2pm (free afternoon first)" },
-  ];
-
   useEffect(() => {
     if (!isInView) return;
     const timers = [
@@ -556,7 +572,7 @@ function AIScheduleSection() {
               )}
               {phase >= 1 && (
                 <div className="space-y-3">
-                  {insights.slice(0, phase).map((insight, i) => (
+                  {AI_INSIGHTS.slice(0, phase).map((insight, i) => (
                     <motion.div
                       key={i}
                       initial={{ opacity: 0, x: -15 }}
@@ -607,20 +623,6 @@ function BudgetSection() {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
   const [phase, setPhase] = useState(0);
 
-  const people = [
-    { name: "You", emoji: "😎", budget: "$500", color: "border-orange-500/30" },
-    { name: "Sarah", emoji: "👩", budget: "$400", color: "border-pink-500/30" },
-    { name: "Mike", emoji: "🧑", budget: "$350", color: "border-blue-500/30" },
-    { name: "Jess", emoji: "👧", budget: "$450", color: "border-emerald-500/30" },
-  ];
-
-  const categories = [
-    { name: "Stays", amount: "$560", pct: 40, color: "bg-orange-500" },
-    { name: "Food", amount: "$350", pct: 25, color: "bg-amber-500" },
-    { name: "Activities", amount: "$280", pct: 20, color: "bg-emerald-500" },
-    { name: "Transport", amount: "$210", pct: 15, color: "bg-blue-500" },
-  ];
-
   useEffect(() => {
     if (!isInView) return;
     const timers = [
@@ -654,7 +656,7 @@ function BudgetSection() {
               </div>
 
               <div className="space-y-2 mb-4">
-                {people.map((person, i) => (
+                {BUDGET_PEOPLE.map((person, i) => (
                   <motion.div
                     key={i}
                     initial={{ opacity: 0, x: -15 }}
@@ -707,7 +709,7 @@ function BudgetSection() {
               {phase >= 6 && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-1.5 mb-3">
                   <div className="text-white/30 text-[9px] font-bold uppercase tracking-widest mb-1">Suggested Breakdown</div>
-                  {categories.map((cat, i) => (
+                  {BUDGET_CATEGORIES.map((cat, i) => (
                     <div key={i} className="flex items-center gap-2">
                       <div className={`w-1.5 h-1.5 rounded-full ${cat.color}`} />
                       <span className="text-white/50 text-[10px] flex-1">{cat.name}</span>
@@ -803,14 +805,12 @@ export default function DemoPage() {
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
   const [activeSection, setActiveSection] = useState(1);
 
-  const sectionIds = ["hero", "imessage", "setup", "itinerary", "swipe", "vote", "schedule", "budget", "cta"];
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const idx = sectionIds.indexOf(entry.target.id);
+            const idx = SECTION_IDS.indexOf(entry.target.id);
             if (idx >= 0) setActiveSection(idx + 1);
           }
         });
@@ -818,7 +818,7 @@ export default function DemoPage() {
       { threshold: 0.3 }
     );
 
-    sectionIds.forEach((id) => {
+    SECTION_IDS.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
