@@ -749,7 +749,7 @@ function CTASection() {
   useEffect(() => {
     fetch("/api/waitlist/count")
       .then(r => r.json())
-      .then(data => { if (data.count > 0) setWaitlistCount(data.count); })
+      .then(data => { if (data.count >= 100) setWaitlistCount(data.count); })
       .catch(() => {});
   }, []);
 

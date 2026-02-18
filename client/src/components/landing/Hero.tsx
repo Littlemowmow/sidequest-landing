@@ -20,8 +20,8 @@ export function Hero() {
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     if (window.innerWidth < MOBILE_BREAKPOINT) return;
     const rect = e.currentTarget.getBoundingClientRect();
-    x.set(e.clientX / rect.width - 0.5);
-    y.set(e.clientY / rect.height - 0.5);
+    x.set((e.clientX - rect.left) / rect.width - 0.5);
+    y.set((e.clientY - rect.top) / rect.height - 0.5);
   }, [x, y]);
 
   return (
