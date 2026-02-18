@@ -222,8 +222,8 @@ export function AppSimulation() {
     return "💎";
   };
 
-  const currentDestinationId = likedDestinations[0] || 1;
-  const currentExpenses = MOCK_EXPENSES[currentDestinationId] || MOCK_EXPENSES[1];
+  const currentDestinationId = likedDestinations[0] ?? 1;
+  const currentExpenses = MOCK_EXPENSES[currentDestinationId] ?? MOCK_EXPENSES[1];
 
   return (
     <div className="w-full h-full bg-white flex flex-col font-sans relative">

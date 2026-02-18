@@ -115,7 +115,7 @@ export function WaitlistSection() {
                         <Button 
                           className="bg-white text-black hover:bg-white/90 font-bold"
                           data-testid="button-copy-referral"
-                          onClick={() => navigator.clipboard.writeText(`${window.location.origin}?ref=${referralCode}`)}
+                          onClick={() => navigator.clipboard.writeText(`${window.location.origin}?ref=${referralCode}`).catch(() => {})}
                         >
                           Copy
                         </Button>

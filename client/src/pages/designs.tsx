@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { ArrowLeft, Check, ChevronRight, Apple, Star, Map, User, Heart, X, MapPin, Plus, Share2, Copy, Settings, HelpCircle, LogOut, Trophy, Globe, Plane, CheckCircle, Bell, Shield, Grip, Wifi, Signal, BatteryFull } from "lucide-react";
+import { ArrowLeft, Check, ChevronRight, Apple, Star, User, Heart, X, MapPin, Share2, Copy, Settings, HelpCircle, LogOut, Trophy, CheckCircle, Bell, Shield, Grip, Wifi, Signal, BatteryFull } from "lucide-react";
 
 function PhoneFrame({ children, label, glow }: { children: React.ReactNode; label: string; glow?: string }) {
   return (

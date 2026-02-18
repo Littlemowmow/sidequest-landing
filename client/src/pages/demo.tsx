@@ -747,12 +747,14 @@ function CTASection() {
     if (isInView && !hasFired.current) {
       hasFired.current = true;
       setTimeout(() => {
-        confetti({
-          particleCount: 120,
-          spread: 80,
-          origin: { y: 0.6 },
-          colors: ["#F97316", "#FB923C", "#FDBA74", "#ffffff"],
-        });
+        try {
+          confetti({
+            particleCount: 120,
+            spread: 80,
+            origin: { y: 0.6 },
+            colors: ["#F97316", "#FB923C", "#FDBA74", "#ffffff"],
+          });
+        } catch { /* confetti unavailable */ }
       }, 300);
     }
   }, [isInView]);
