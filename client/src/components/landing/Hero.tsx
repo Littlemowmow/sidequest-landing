@@ -24,9 +24,15 @@ export function Hero() {
     y.set((e.clientY - rect.top) / rect.height - 0.5);
   }, [x, y]);
 
+  const handleMouseLeave = useCallback(() => {
+    x.set(0);
+    y.set(0);
+  }, [x, y]);
+
   return (
     <section
       onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       className="relative min-h-[90vh] flex flex-col justify-center px-4 pt-28 pb-16 overflow-hidden"
     >
       <div className="container mx-auto max-w-7xl">
@@ -97,7 +103,7 @@ export function Hero() {
                 className="w-[440px] h-[580px] rounded-[2rem] overflow-hidden shadow-2xl relative z-20 group cinematic-glow"
                 style={{ transform: "translateZ(40px)" }}
               >
-                 <img src="/images/hero-barcelona.jpg" className="w-full h-full object-cover transition-transform duration-[20s] ease-linear group-hover:scale-110" alt="Barcelona trip destination" />
+                 <img src="/images/hero-barcelona.jpg" className="w-full h-full object-cover transition-transform duration-[20s] ease-linear group-hover:scale-110" alt="Barcelona trip destination" fetchPriority="high" />
                  <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/50 pointer-events-none" />
                  
                  <div className="absolute bottom-6 left-6 right-6 text-white">

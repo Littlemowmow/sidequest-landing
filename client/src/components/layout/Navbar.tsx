@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
@@ -37,10 +37,18 @@ export function Navbar() {
     return () => document.removeEventListener("keydown", handleEscape);
   }, [isMobileMenuOpen]);
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = useCallback((id: string) => {
+    const wasMenuOpen = isMobileMenuOpen;
     setIsMobileMenuOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
+    if (wasMenuOpen) {
+      document.body.style.overflow = "";
+      requestAnimationFrame(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      });
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [isMobileMenuOpen]);
 
   const links = [
     { label: "Demo", id: "demo" },
@@ -51,19 +59,21 @@ export function Navbar() {
 
   return (
     <>
-      <nav 
+      <nav
+        aria-label="Main navigation"
         className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-6 py-3 transition-all duration-300 ${
           isScrolled || isMobileMenuOpen ? "bg-black/80 backdrop-blur-xl border-b border-white/5 shadow-sm" : "bg-transparent"
         }`}
         data-testid="navbar"
       >
         <div className="container mx-auto max-w-7xl flex justify-between items-center">
-          <div 
-            className="cursor-pointer"
+          <button
+            className="cursor-pointer bg-transparent border-none p-0"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            aria-label="Scroll to top"
           >
             <Logo className="text-white" />
-          </div>
+          </button>
 
           <div className="hidden md:flex items-center gap-1 font-medium text-sm text-white/40">
             {links.map(link => (
@@ -85,10 +95,11 @@ export function Navbar() {
             </Button>
           </div>
 
-          <button 
+          <button
             className="md:hidden p-2 text-white rounded-lg hover:bg-white/10 transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMobileMenuOpen}
             data-testid="button-mobile-menu"
           >
             {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -108,7 +119,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl pt-20 px-6 md:hidden flex flex-col"
+            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl pt-20 px-6 md:hidden flex flex-col overscroll-contain touch-none"
           >
             <div className="flex flex-col gap-1 text-lg font-semibold text-white">
               {links.map((link, i) => (

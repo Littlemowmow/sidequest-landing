@@ -81,13 +81,15 @@ function AutoPlayChat() {
   );
 }
 
-export function ProblemSection() {
-  const ChatBubble = ({ text, isMe }: { text: string, isMe?: boolean }) => (
+function ChatBubble({ text, isMe }: { text: string; isMe?: boolean }) {
+  return (
     <div className={`py-2 px-3 rounded-2xl text-xs max-w-[90%] mb-1.5 ${isMe ? "bg-blue-500 text-white rounded-br-sm ml-auto" : "bg-white/10 text-white/70 rounded-bl-sm mr-auto"}`}>
       {text}
     </div>
   );
+}
 
+export function ProblemSection() {
   return (
     <section id="demo" className="py-24 px-4 overflow-hidden">
       <div className="container mx-auto max-w-7xl text-center">

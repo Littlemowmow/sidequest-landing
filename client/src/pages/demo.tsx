@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { motion, useScroll, useSpring, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, MapPin, Users, Calendar, DollarSign, Sun, Cloud, Heart, X, Check, Crown, ArrowUp, Sparkles } from "lucide-react";
@@ -357,15 +357,16 @@ function SwipeSection() {
     const directions = ["right", "left", "right"];
     const timer = setInterval(() => {
       if (i >= SWIPE_CARDS.length) { clearInterval(timer); return; }
-      setSwipeDir(directions[i]);
-      if (directions[i] === "right") {
-        setAddedItems(prev => [...prev, SWIPE_CARDS[i].name]);
+      const current = i;
+      setSwipeDir(directions[current]);
+      if (directions[current] === "right") {
+        setAddedItems(prev => [...prev, SWIPE_CARDS[current].name]);
       }
       setTimeout(() => {
         setSwipeDir(null);
         setCurrentCard(prev => prev + 1);
-        i++;
       }, 600);
+      i++;
     }, 1500);
     return () => clearInterval(timer);
   }, [isInView]);
@@ -745,6 +746,7 @@ function CTASection() {
   const isInView = useInView(ref, { once: true, amount: 0.5 });
   const hasFired = useRef(false);
   const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
+  const [, navigate] = useLocation();
 
   useEffect(() => {
     fetch("/api/waitlist/count")
@@ -790,7 +792,12 @@ function CTASection() {
         </p>
         <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
           <Button
-            onClick={() => window.location.href = "/#waitlist"}
+            onClick={() => {
+              navigate("/");
+              requestAnimationFrame(() => {
+                document.getElementById("waitlist")?.scrollIntoView({ behavior: "smooth" });
+              });
+            }}
             size="lg"
             className="rounded-full bg-orange-500 hover:bg-orange-600 text-white text-lg font-bold h-16 px-12 shadow-2xl shadow-orange-500/30"
             data-testid="button-demo-cta"
