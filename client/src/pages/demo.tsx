@@ -28,13 +28,13 @@ const ITINERARY_SLOTS = [
 ];
 
 const SWIPE_CARDS = [
-  { name: "Hidden Speakeasy", icon: "🍸", tag: "Nightlife" },
+  { name: "Sunset Rooftop Tapas", icon: "🍷", tag: "Food & Drinks" },
   { name: "Rooftop Sunset Yoga", icon: "🧘", tag: "Wellness" },
   { name: "Secret Garden Brunch", icon: "🌿", tag: "Food" },
 ];
 
 const VOTE_RESULTS = [
-  { name: "Hidden Speakeasy", votes: 4, total: 4, status: "Must Do", color: "bg-emerald-500" },
+  { name: "Sunset Rooftop Tapas", votes: 4, total: 4, status: "Must Do", color: "bg-emerald-500" },
   { name: "Rooftop Yoga", votes: 3, total: 4, status: "Group Pick", color: "bg-blue-500" },
   { name: "Flamenco Show", votes: 2, total: 4, status: "", color: "bg-orange-500" },
   { name: "Tapas Tour", votes: 2, total: 4, status: "", color: "bg-amber-500" },
@@ -273,6 +273,7 @@ function SmartItinerarySection() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
   const [visibleSlots, setVisibleSlots] = useState(0);
+  const [activeDay, setActiveDay] = useState(1);
 
   useEffect(() => {
     if (!isInView) return;
@@ -280,10 +281,18 @@ function SmartItinerarySection() {
     const interval = setInterval(() => {
       i++;
       setVisibleSlots(i);
+      if (i === 4) setActiveDay(2);
       if (i >= ITINERARY_SLOTS.length) clearInterval(interval);
     }, 400);
     return () => clearInterval(interval);
   }, [isInView]);
+
+  const day1Slots = ITINERARY_SLOTS.filter(s => !s.day || s.day === 1);
+  const day2Slots = ITINERARY_SLOTS.filter(s => s.day === 2);
+  const currentSlots = activeDay === 1 ? day1Slots : day2Slots;
+  const slotsToShow = activeDay === 1
+    ? currentSlots.slice(0, Math.min(visibleSlots, 3))
+    : currentSlots.slice(0, Math.min(visibleSlots - 3, 3));
 
   return (
     <div ref={ref}>
@@ -304,15 +313,15 @@ function SmartItinerarySection() {
               </div>
               <div className="flex gap-2 mb-4">
                 {["Day 1", "Day 2"].map((d, i) => (
-                  <div key={d} className={`flex-1 text-center py-1.5 rounded-lg text-[11px] font-bold ${i === 0 ? "bg-orange-500/20 text-orange-400 border border-orange-500/30" : "bg-white/5 text-white/30 border border-white/5"}`}>
+                  <div key={d} className={`flex-1 text-center py-1.5 rounded-lg text-[11px] font-bold transition-colors duration-300 ${activeDay === i + 1 ? "bg-orange-500/20 text-orange-400 border border-orange-500/30" : "bg-white/5 text-white/30 border border-white/5"}`}>
                     {d}
                   </div>
                 ))}
               </div>
               <div className="space-y-2.5">
-                {ITINERARY_SLOTS.slice(0, Math.min(visibleSlots, 3)).map((slot, i) => (
+                {slotsToShow.map((slot, i) => (
                   <motion.div
-                    key={i}
+                    key={`${activeDay}-${i}`}
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="bg-white/5 border border-white/10 rounded-xl p-3 flex items-center gap-3"
@@ -326,7 +335,7 @@ function SmartItinerarySection() {
                   </motion.div>
                 ))}
               </div>
-              {visibleSlots >= 4 && (
+              {visibleSlots >= ITINERARY_SLOTS.length && (
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -365,9 +374,9 @@ function SwipeSection() {
       setTimeout(() => {
         setSwipeDir(null);
         setCurrentCard(prev => prev + 1);
-      }, 600);
+      }, 500);
       i++;
-    }, 1500);
+    }, 1100);
     return () => clearInterval(timer);
   }, [isInView]);
 
@@ -398,7 +407,7 @@ function SwipeSection() {
                       rotate: swipeDir === "right" ? 15 : swipeDir === "left" ? -15 : 0,
                       opacity: swipeDir ? 0 : 1,
                     }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.4 }}
                     className="absolute inset-4 bg-gradient-to-br from-white/10 to-white/5 border border-white/10 rounded-3xl p-6 flex flex-col items-center justify-center text-center"
                   >
                     <div className="text-5xl mb-4">{SWIPE_CARDS[currentCard].icon}</div>
@@ -458,7 +467,7 @@ function GroupVoteSection() {
         return prev + 2;
       });
     }, 30);
-    const tieTimer = setTimeout(() => setShowTiebreaker(true), 2500);
+    const tieTimer = setTimeout(() => setShowTiebreaker(true), 1800);
     return () => { clearInterval(timer); clearTimeout(tieTimer); };
   }, [isInView]);
 
@@ -537,10 +546,10 @@ function AIScheduleSection() {
   useEffect(() => {
     if (!isInView) return;
     const timers = [
-      setTimeout(() => setPhase(1), 800),
-      setTimeout(() => setPhase(2), 1600),
-      setTimeout(() => setPhase(3), 2400),
-      setTimeout(() => setPhase(4), 3500),
+      setTimeout(() => setPhase(1), 300),
+      setTimeout(() => setPhase(2), 900),
+      setTimeout(() => setPhase(3), 1500),
+      setTimeout(() => setPhase(4), 2300),
     ];
     return () => timers.forEach(clearTimeout);
   }, [isInView]);
@@ -627,13 +636,13 @@ function BudgetSection() {
   useEffect(() => {
     if (!isInView) return;
     const timers = [
-      setTimeout(() => setPhase(1), 400),
-      setTimeout(() => setPhase(2), 1000),
-      setTimeout(() => setPhase(3), 1600),
-      setTimeout(() => setPhase(4), 2200),
-      setTimeout(() => setPhase(5), 3000),
-      setTimeout(() => setPhase(6), 3800),
-      setTimeout(() => setPhase(7), 4600),
+      setTimeout(() => setPhase(1), 200),
+      setTimeout(() => setPhase(2), 450),
+      setTimeout(() => setPhase(3), 700),
+      setTimeout(() => setPhase(4), 950),
+      setTimeout(() => setPhase(5), 1400),
+      setTimeout(() => setPhase(6), 2000),
+      setTimeout(() => setPhase(7), 2600),
     ];
     return () => timers.forEach(clearTimeout);
   }, [isInView]);
