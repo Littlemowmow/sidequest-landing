@@ -38,16 +38,16 @@ export function FAQSection() {
   ];
 
   return (
-    <section id="faq" className="py-24 px-4">
+    <section id="faq" className="py-16 sm:py-20 md:py-24 px-4">
       <div className="container mx-auto max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-10"
+          className="text-center mb-8 sm:mb-10"
         >
           <span className="inline-block py-1.5 px-4 rounded-full bg-orange-500/10 text-orange-400 font-bold text-xs uppercase tracking-wider mb-4 border border-orange-500/20">FAQ</span>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-white" data-testid="text-faq-title">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white" data-testid="text-faq-title">
             Questions? We've got answers.
           </h2>
         </motion.div>
@@ -55,10 +55,10 @@ export function FAQSection() {
         <Accordion type="single" collapsible className="w-full">
           {faqs.map((faq, idx) => (
             <AccordionItem key={idx} value={`item-${idx}`} className="border-b border-white/10" data-testid={`faq-item-${idx}`}>
-              <AccordionTrigger className="text-left font-semibold text-white hover:no-underline hover:text-orange-400 py-5 text-[15px]">
+              <AccordionTrigger className="text-left font-semibold text-white hover:no-underline hover:text-orange-400 py-4 sm:py-5 text-sm sm:text-[15px]">
                 {faq.q}
               </AccordionTrigger>
-              <AccordionContent className="text-white/50 leading-relaxed pb-5 text-[15px]">
+              <AccordionContent className="text-white/50 leading-relaxed pb-4 sm:pb-5 text-sm sm:text-[15px]">
                 {faq.a}
               </AccordionContent>
             </AccordionItem>

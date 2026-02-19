@@ -24,11 +24,11 @@ const ITINERARY_SLOTS = [
   { time: "Evening", activity: "Gothic Quarter Walk", icon: "🏛️", category: "Explore" },
   { time: "Morning", activity: "Park Güell", icon: "🦎", category: "Culture", day: 2 },
   { time: "Afternoon", activity: "Barceloneta Beach", icon: "🏖️", category: "Relax", day: 2 },
-  { time: "Evening", activity: "Tapas Crawl", icon: "🍷", category: "Food", day: 2 },
+  { time: "Evening", activity: "Tapas Tour", icon: "🍽️", category: "Food", day: 2 },
 ];
 
 const SWIPE_CARDS = [
-  { name: "Hidden Speakeasy", icon: "🍸", tag: "Nightlife" },
+  { name: "Rooftop Photography Spot", icon: "📸", tag: "Explore" },
   { name: "Rooftop Sunset Yoga", icon: "🧘", tag: "Wellness" },
   { name: "Secret Garden Brunch", icon: "🌿", tag: "Food" },
 ];

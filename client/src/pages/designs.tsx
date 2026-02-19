@@ -224,7 +224,7 @@ function OnboardingTravelStyle() {
     { icon: "🏛️", label: "Culture", sel: true },
     { icon: "🍜", label: "Foodie", sel: false },
     { icon: "🧘", label: "Relaxation", sel: false },
-    { icon: "🎉", label: "Nightlife", sel: true },
+    { icon: "🎉", label: "Festivals", sel: true },
     { icon: "🌿", label: "Nature", sel: false },
   ];
   return (
@@ -251,7 +251,7 @@ function OnboardingTravelStyle() {
 }
 
 function OnboardingInterests() {
-  const interests = ["Hiking", "Museums", "Street Food", "Surfing", "Photography", "Markets", "Diving", "Wine", "Architecture", "Festivals", "Yoga", "Nightlife"];
+  const interests = ["Hiking", "Museums", "Street Food", "Surfing", "Photography", "Markets", "Diving", "Cooking", "Architecture", "Festivals", "Yoga", "Sunsets"];
   const sel = [0, 2, 4, 7, 9];
   return (
     <PhoneFrame label="Interests">
@@ -363,7 +363,7 @@ function OnboardingAllSet() {
         <div className="text-emerald-400/60 text-[10px] font-bold uppercase tracking-[0.25em] mb-3">You're Ready</div>
         <div className="text-white font-bold text-[22px] mb-7">All Set!</div>
         <div className="w-full space-y-3 mb-8">
-          <PillRow emoji="⛰️" text="Adventure, Culture, Nightlife" right={<GreenCheck />} />
+          <PillRow emoji="⛰️" text="Adventure, Culture, Foodie" right={<GreenCheck />} />
           <PillRow emoji="⚖️" text="Balanced budget" right={<GreenCheck />} />
           <PillRow emoji="🚶" text="Super Chill pace" right={<GreenCheck />} />
         </div>

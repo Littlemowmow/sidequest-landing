@@ -14,7 +14,7 @@ Preferred communication style: Simple, everyday language.
 
 ### Frontend
 - **Framework:** React 18 with TypeScript, bundled by Vite
-- **Routing:** Wouter (lightweight client-side router) with three routes: Home (`/`), Demo (`/demo`), and a 404 catch-all
+- **Routing:** Wouter (lightweight client-side router) with routes: Home (`/`), Demo (`/demo`), Designs (`/designs`), Quick Poll (`/poll`, `/poll/:shareCode`), and a 404 catch-all
 - **Styling:** Tailwind CSS v4 (using `@tailwindcss/vite` plugin) with CSS variables for theming. The design system uses shadcn/ui components (new-york style) built on Radix UI primitives
 - **Fonts:** Outfit (display/headlines) and Inter (body text), loaded from Google Fonts
 - **Animations:** Framer Motion for scroll animations, parallax effects, and interactive transitions
@@ -28,16 +28,22 @@ Preferred communication style: Simple, everyday language.
 ### Backend
 - **Framework:** Express.js running on Node.js with TypeScript (compiled via tsx)
 - **Server setup:** HTTP server created with `createServer`, supports both development (Vite dev server middleware with HMR) and production (static file serving from `dist/public`)
-- **API routes:** Minimal REST API under `/api/` prefix:
+- **API routes:** REST API under `/api/` prefix:
   - `POST /api/waitlist` — Submit email to waitlist with optional destination, travel date, university, and referral tracking. Generates a unique referral code per user.
   - `GET /api/waitlist/count` — Returns total waitlist signup count
+  - `POST /api/polls` — Create a new quick poll with question, options, category, and creator name. Returns a unique share code.
+  - `GET /api/polls/:shareCode` — Get poll details and vote counts (voter names excluded for privacy)
+  - `POST /api/polls/:shareCode/vote` — Cast a vote on a poll (one vote per name enforced via DB unique constraint)
 - **Input validation:** Zod schemas (generated from Drizzle schema via `drizzle-zod`) validate all API inputs
 
 ### Database
 - **Database:** PostgreSQL, connected via `pg` Pool
 - **ORM:** Drizzle ORM with PostgreSQL dialect
 - **Schema location:** `shared/schema.ts` — shared between frontend and backend
-- **Schema:** Single table `waitlist_entries` with fields: id, email (unique), destination, travel_date, travel_type, university, referral_code, referred_by, created_at
+- **Schema:** Three tables:
+  - `waitlist_entries`: id, email (unique), destination, travel_date, travel_type, university, referral_code, referred_by, created_at
+  - `polls`: id, share_code (unique), question, options (text array), category, created_by, created_at
+  - `poll_votes`: id, poll_id (FK to polls with cascade delete), option_index, voter_name, created_at. Unique constraint on (poll_id, voter_name)
 - **Migrations:** Managed via `drizzle-kit push` (schema push approach, not migration files)
 - **Storage pattern:** `server/storage.ts` implements an `IStorage` interface with a `DatabaseStorage` class, making it straightforward to swap implementations
 

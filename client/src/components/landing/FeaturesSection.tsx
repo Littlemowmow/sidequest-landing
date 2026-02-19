@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Heart, X, Check, Clock, MapPin, DollarSign, Users, Grip, Sparkles } from "lucide-react";
+import { Heart, X, Check, Clock, MapPin, DollarSign, Users, Grip, Sparkles, MessageCircle, Bot, Send } from "lucide-react";
 
 function PhoneFrame({ children }: { children: React.ReactNode }) {
   return (
@@ -97,7 +97,7 @@ function SquadItineraryMockup() {
   const items = [
     { time: "Morning", activity: "La Boqueria Market", icon: "🍊", addedBy: "Jess" },
     { time: "Afternoon", activity: "Gothic Quarter Walk", icon: "🏛️", addedBy: "Marco" },
-    { time: "Evening", activity: "Hidden Rooftop Bar", icon: "🍸", addedBy: "Jess" },
+    { time: "Evening", activity: "Sunset Rooftop Dinner", icon: "🌅", addedBy: "Jess" },
   ];
 
   return (
@@ -133,6 +133,161 @@ function SquadItineraryMockup() {
   );
 }
 
+function MiniPhone({ children, label }: { children: React.ReactNode; label: string }) {
+  return (
+    <div className="glass-card rounded-[2rem] p-2 w-full max-w-[240px]">
+      <div className="bg-[#0a0a0a] rounded-[1.5rem] overflow-hidden relative border border-white/5">
+        <div className="absolute top-2 left-1/2 -translate-x-1/2 h-3.5 w-12 bg-black rounded-full z-20 border border-white/10" />
+        <div className="pt-7 pb-3 px-0 flex flex-col" style={{ minHeight: "420px" }}>
+          <div className="px-3 pb-2 border-b border-white/5 flex items-center justify-between">
+            <div className="text-[9px] font-bold text-white/60">{label}</div>
+            <div className="flex -space-x-1.5">
+              <div className="w-4 h-4 rounded-full bg-white/10 border border-[#0a0a0a] text-[7px] flex items-center justify-center">🧑</div>
+              <div className="w-4 h-4 rounded-full bg-white/10 border border-[#0a0a0a] text-[7px] flex items-center justify-center">👩</div>
+              <div className="w-4 h-4 rounded-full bg-white/10 border border-[#0a0a0a] text-[7px] flex items-center justify-center">👧</div>
+              <div className="w-4 h-4 rounded-full bg-gradient-to-br from-orange-500 to-amber-600 border border-[#0a0a0a] flex items-center justify-center">
+                <Bot size={7} className="text-white" />
+              </div>
+            </div>
+          </div>
+          <div className="flex-1 px-3 pt-2.5">
+            {children}
+          </div>
+          <div className="px-3 pt-2">
+            <div className="flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-full px-3 py-2">
+              <div className="text-white/20 text-[9px] flex-1">Message your group...</div>
+              <div className="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center">
+                <Send size={9} className="text-white" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function GroupAIChatMockup() {
+  return (
+    <div className="flex gap-3 sm:gap-5 items-start justify-center">
+      <MiniPhone label="Arrival Planning">
+        <div className="space-y-2.5">
+          <div className="flex gap-1.5 items-end justify-end">
+            <div className="bg-[#007AFF] rounded-2xl rounded-br-sm px-2.5 py-1.5 max-w-[85%]">
+              <div className="text-[10px] text-white leading-snug">I land at 2pm Thursday, what can we do before dinner?</div>
+            </div>
+            <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center text-[8px] shrink-0">🧑</div>
+          </div>
+
+          <div className="flex gap-1.5 items-end">
+            <div className="w-5 h-5 rounded-full bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center shrink-0">
+              <Bot size={9} className="text-white" />
+            </div>
+            <div className="flex-1 min-w-0 space-y-1">
+              <div className="bg-white/8 rounded-2xl rounded-bl-sm px-2.5 py-2 text-[10px] text-white/80 leading-snug">
+                Mike lands at BCN at 2pm. With travel to your Airbnb (~25 min), you have a <span className="text-white font-semibold">3hr window</span> before dinner.
+              </div>
+              <div className="space-y-1">
+                <div className="bg-white/5 border border-white/10 rounded-xl px-2.5 py-2 flex items-center justify-between">
+                  <div>
+                    <div className="text-white text-[9px] font-semibold">Gothic Quarter Walk</div>
+                    <div className="text-white/30 text-[8px]">From the Airbnb · Free</div>
+                  </div>
+                  <div className="text-[8px] text-emerald-400 font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded-full">8 min</div>
+                </div>
+                <div className="bg-white/5 border border-white/10 rounded-xl px-2.5 py-2 flex items-center justify-between">
+                  <div>
+                    <div className="text-white text-[9px] font-semibold">Barceloneta Beach</div>
+                    <div className="text-white/30 text-[8px]">Sunset at 8:40pm</div>
+                  </div>
+                  <div className="text-[8px] text-amber-400 font-bold bg-amber-500/10 px-1.5 py-0.5 rounded-full">18 min</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex gap-1.5 items-end justify-end">
+            <div className="bg-white/10 rounded-2xl rounded-br-sm px-2.5 py-1.5 max-w-[85%]">
+              <div className="text-[10px] text-white/70 leading-snug">Gothic Quarter walk sounds perfect for Day 1</div>
+            </div>
+            <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center text-[8px] shrink-0">👩</div>
+          </div>
+
+          <div className="flex gap-1.5 items-end">
+            <div className="w-5 h-5 rounded-full bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center shrink-0">
+              <Bot size={9} className="text-white" />
+            </div>
+            <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-2xl rounded-bl-sm px-2.5 py-1.5 text-[9px] text-emerald-400 flex items-center gap-1">
+              <Check size={9} className="shrink-0" /> Added to Day 1, 3:30–6pm
+            </div>
+          </div>
+        </div>
+      </MiniPhone>
+
+      <MiniPhone label="Local Recs">
+        <div className="space-y-2.5">
+          <div className="flex gap-1.5 items-end justify-end">
+            <div className="bg-white/10 rounded-2xl rounded-br-sm px-2.5 py-1.5 max-w-[85%]">
+              <div className="text-[10px] text-white/70 leading-snug">find us dinner near the Airbnb, cheap and good for 4</div>
+            </div>
+            <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center text-[8px] shrink-0">👩</div>
+          </div>
+
+          <div className="flex gap-1.5 items-end">
+            <div className="w-5 h-5 rounded-full bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center shrink-0">
+              <Bot size={9} className="text-white" />
+            </div>
+            <div className="flex-1 min-w-0 space-y-1">
+              <div className="bg-white/8 rounded-2xl rounded-bl-sm px-2.5 py-2 text-[10px] text-white/80 leading-snug">
+                3 spots walking distance, under $15/person:
+              </div>
+              <div className="space-y-1">
+                <div className="bg-white/5 border border-white/10 rounded-xl px-2.5 py-2 flex items-center gap-2">
+                  <div className="flex-1 min-w-0">
+                    <div className="text-white text-[9px] font-semibold">El Nacional</div>
+                    <div className="text-white/30 text-[8px]">Tapas · 4 min · $$</div>
+                  </div>
+                  <div className="text-[8px] font-bold text-amber-400">4.7★</div>
+                </div>
+                <div className="bg-white/5 border border-white/10 rounded-xl px-2.5 py-2 flex items-center gap-2">
+                  <div className="flex-1 min-w-0">
+                    <div className="text-white text-[9px] font-semibold">La Plata</div>
+                    <div className="text-white/30 text-[8px]">Seafood · 6 min · $</div>
+                  </div>
+                  <div className="text-[8px] font-bold text-amber-400">4.8★</div>
+                </div>
+                <div className="bg-white/5 border border-orange-500/20 rounded-xl px-2.5 py-2 flex items-center gap-2">
+                  <div className="flex-1 min-w-0">
+                    <div className="text-white text-[9px] font-semibold">Can Culleretes</div>
+                    <div className="text-white/30 text-[8px]">Catalan · 3 min · $</div>
+                  </div>
+                  <div className="text-[8px] font-bold text-amber-400">4.9★</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex gap-1.5 items-end justify-end">
+            <div className="bg-[#007AFF] rounded-2xl rounded-br-sm px-2.5 py-1.5 max-w-[85%]">
+              <div className="text-[10px] text-white leading-snug">Can Culleretes for sure, add it!</div>
+            </div>
+            <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center text-[8px] shrink-0">👧</div>
+          </div>
+
+          <div className="flex gap-1.5 items-end">
+            <div className="w-5 h-5 rounded-full bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center shrink-0">
+              <Bot size={9} className="text-white" />
+            </div>
+            <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-2xl rounded-bl-sm px-2.5 py-1.5 text-[9px] text-emerald-400 flex items-center gap-1">
+              <Check size={9} className="shrink-0" /> Booked for 4, 7:30pm
+            </div>
+          </div>
+        </div>
+      </MiniPhone>
+    </div>
+  );
+}
+
 export function FeaturesSection() {
   const features = [
     {
@@ -156,6 +311,13 @@ export function FeaturesSection() {
       description: "Build a shared itinerary everyone can see and edit. Drag, drop, remix. No more one person doing all the work while everyone else says \"whatever you think.\"",
       mockup: <SquadItineraryMockup />,
     },
+    {
+      id: "group-ai-chat",
+      label: "Group AI Chat",
+      title: "Group AI Chat",
+      description: "Your whole squad messages the AI together — and it already knows everyone's flights, your Airbnb location, the budget, and the itinerary. \"Mike lands at 2, what can we do before dinner?\" It calculates the overlap, suggests spots near your stay, and adds it to the plan. Like a local friend who knows your entire trip.",
+      mockup: <GroupAIChatMockup />,
+    },
   ];
 
   return (
@@ -172,7 +334,7 @@ export function FeaturesSection() {
             From chaos to consensus
           </h2>
           <p className="text-lg text-white/50 max-w-xl mx-auto">
-            Three tools that replace 200 unread messages.
+            Four tools that replace 200 unread messages.
           </p>
         </motion.div>
 
