@@ -3,7 +3,7 @@ import { type Server } from "http";
 import { storage } from "./storage";
 import { waitlistRequestSchema } from "@shared/schema";
 import { randomBytes } from "crypto";
-import { sendWaitlistConfirmationEmail } from "./email";
+import { sendWaitlistConfirmationEmail, sendContactInquiryEmail } from "./email";
 
 export async function registerRoutes(
   httpServer: Server,
@@ -56,6 +56,40 @@ export async function registerRoutes(
       const count = await storage.getWaitlistCount();
       res.json({ count });
     } catch (error) {
+      res.status(500).json({ error: "Something went wrong" });
+    }
+  });
+
+  app.post("/api/contact", async (req, res) => {
+    try {
+      const { name, email, message } = req.body;
+
+      if (!name || typeof name !== "string" || name.trim().length === 0) {
+        return res.status(400).json({ error: "Name is required" });
+      }
+      if (!email || typeof email !== "string" || !email.includes("@")) {
+        return res.status(400).json({ error: "Valid email is required" });
+      }
+      if (!message || typeof message !== "string" || message.trim().length === 0) {
+        return res.status(400).json({ error: "Message is required" });
+      }
+      if (message.length > 2000) {
+        return res.status(400).json({ error: "Message too long (max 2000 characters)" });
+      }
+
+      const result = await sendContactInquiryEmail({
+        name: name.trim(),
+        email: email.trim().toLowerCase(),
+        message: message.trim(),
+      });
+
+      if (result.success) {
+        res.json({ success: true });
+      } else {
+        res.status(500).json({ error: "Failed to send message" });
+      }
+    } catch (error) {
+      console.error("Contact form error:", error);
       res.status(500).json({ error: "Something went wrong" });
     }
   });

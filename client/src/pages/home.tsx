@@ -7,6 +7,7 @@ import { SocialProofSection } from "@/components/landing/SocialProofSection";
 import { WaitlistSection } from "@/components/landing/WaitlistSection";
 import { FAQSection } from "@/components/landing/FAQSection";
 import { ComparisonSection } from "@/components/landing/ComparisonSection";
+import { ContactSection } from "@/components/landing/ContactSection";
 import { Footer } from "@/components/landing/Footer";
 
 export default function Home() {
@@ -29,6 +30,8 @@ export default function Home() {
         <FAQSection />
         <div className="section-divider max-w-4xl mx-auto" />
         <WaitlistSection />
+        <div className="section-divider max-w-4xl mx-auto" />
+        <ContactSection />
       </main>
       
       <Footer />

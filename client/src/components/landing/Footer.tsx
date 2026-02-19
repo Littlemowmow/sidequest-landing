@@ -34,7 +34,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-white/30">
               <li><span className="cursor-default" data-testid="link-footer-about">About</span></li>
               <li><span className="cursor-default" data-testid="link-footer-blog">Blog</span></li>
-              <li><span className="cursor-default" data-testid="link-footer-contact">Contact</span></li>
+              <li><button onClick={() => scrollToSection("contact")} className="hover:text-orange-400 transition-colors" data-testid="link-footer-contact">Contact</button></li>
             </ul>
           </div>
 

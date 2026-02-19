@@ -105,6 +105,67 @@ function buildWaitlistEmailHtml(params: {
 </html>`;
 }
 
+export async function sendContactInquiryEmail(params: {
+  name: string;
+  email: string;
+  message: string;
+}): Promise<{ success: boolean; error?: string }> {
+  try {
+    const { client, fromEmail } = await getResendClient();
+
+    await client.emails.send({
+      from: fromEmail,
+      to: "muhahadi@umich.edu",
+      subject: `SideQuest Inquiry from ${params.name}`,
+      replyTo: params.email,
+      html: `<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#0f0f0f;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#0f0f0f;">
+    <tr>
+      <td align="center" style="padding:40px 16px;">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:520px;">
+          <tr>
+            <td style="padding:0 0 24px;">
+              <table role="presentation" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td style="width:36px;height:36px;background:linear-gradient(135deg,#f97316,#d97706);border-radius:10px;text-align:center;vertical-align:middle;color:#fff;font-weight:800;font-size:18px;">S</td>
+                  <td style="padding-left:10px;font-size:20px;font-weight:700;color:#f9f9f9;letter-spacing:-0.02em;">SideQuest Inquiry</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="background-color:#1a1a1a;border-radius:20px;padding:32px;border:1px solid #2a2a2a;">
+              <p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#f97316;text-transform:uppercase;letter-spacing:0.1em;">From</p>
+              <p style="margin:0 0 16px;color:#f9f9f9;font-size:16px;font-weight:600;">${params.name} &lt;${params.email}&gt;</p>
+              <div style="height:1px;background:#2a2a2a;margin:0 0 16px;"></div>
+              <p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#f97316;text-transform:uppercase;letter-spacing:0.1em;">Message</p>
+              <p style="margin:0;color:#d4d4d8;font-size:15px;line-height:1.7;white-space:pre-wrap;">${params.message}</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:20px 0 0;text-align:center;">
+              <p style="margin:0;color:#52525b;font-size:12px;">Reply directly to this email to respond to ${params.name}.</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`,
+    });
+
+    return { success: true };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Unknown email error";
+    console.error("Failed to send contact inquiry email:", message);
+    return { success: false, error: message };
+  }
+}
+
 export async function sendWaitlistConfirmationEmail(params: {
   email: string;
   destination?: string | null;
