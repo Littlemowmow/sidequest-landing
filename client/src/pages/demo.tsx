@@ -100,7 +100,7 @@ function HookText({ text }: { text: string }) {
       viewport={{ once: true }}
       className="text-center py-16"
     >
-      <p className="text-white/25 italic text-lg font-medium">{text}</p>
+      <p className="text-white/40 italic text-lg font-medium">{text}</p>
     </motion.div>
   );
 }
@@ -280,8 +280,14 @@ function SmartItinerarySection() {
     let i = 0;
     const interval = setInterval(() => {
       i++;
-      setVisibleSlots(i);
-      if (i === 4) setActiveDay(2);
+      if (i <= 3) {
+        setVisibleSlots(i);
+      } else if (i === 4) {
+        setActiveDay(2);
+        setVisibleSlots(4);
+      } else {
+        setVisibleSlots(i);
+      }
       if (i >= ITINERARY_SLOTS.length) clearInterval(interval);
     }, 400);
     return () => clearInterval(interval);
@@ -292,7 +298,7 @@ function SmartItinerarySection() {
   const currentSlots = activeDay === 1 ? day1Slots : day2Slots;
   const slotsToShow = activeDay === 1
     ? currentSlots.slice(0, Math.min(visibleSlots, 3))
-    : currentSlots.slice(0, Math.min(visibleSlots - 3, 3));
+    : currentSlots.slice(0, Math.max(visibleSlots - 3, 0));
 
   return (
     <div ref={ref}>
@@ -374,9 +380,9 @@ function SwipeSection() {
       setTimeout(() => {
         setSwipeDir(null);
         setCurrentCard(prev => prev + 1);
-      }, 500);
+      }, 400);
       i++;
-    }, 1100);
+    }, 750);
     return () => clearInterval(timer);
   }, [isInView]);
 
@@ -388,7 +394,7 @@ function SwipeSection() {
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }}>
             <span className="inline-block py-1.5 px-4 rounded-full bg-orange-500/10 text-orange-400 font-bold text-xs uppercase tracking-wider mb-4 border border-orange-500/20">Step 4</span>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">Discover hidden gems</h2>
-            <p className="text-white/50 leading-relaxed text-lg">Swipe through local SideQuests — speakeasies, rooftop yoga, secret gardens. The stuff your guidebook doesn't know about.</p>
+            <p className="text-white/50 leading-relaxed text-lg">Swipe through local SideQuests — rooftop yoga, secret gardens, sunset viewpoints. The stuff your guidebook doesn't know about.</p>
           </motion.div>
         }
         mockup={
@@ -467,7 +473,7 @@ function GroupVoteSection() {
         return prev + 2;
       });
     }, 30);
-    const tieTimer = setTimeout(() => setShowTiebreaker(true), 1800);
+    const tieTimer = setTimeout(() => setShowTiebreaker(true), 1200);
     return () => { clearInterval(timer); clearTimeout(tieTimer); };
   }, [isInView]);
 
@@ -522,7 +528,7 @@ function GroupVoteSection() {
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.8 }}
+                    transition={{ delay: 0.5 }}
                     className="mt-2 flex items-center justify-center gap-1.5"
                   >
                     <Crown size={12} className="text-amber-400" />
@@ -546,10 +552,10 @@ function AIScheduleSection() {
   useEffect(() => {
     if (!isInView) return;
     const timers = [
-      setTimeout(() => setPhase(1), 300),
-      setTimeout(() => setPhase(2), 900),
-      setTimeout(() => setPhase(3), 1500),
-      setTimeout(() => setPhase(4), 2300),
+      setTimeout(() => setPhase(1), 200),
+      setTimeout(() => setPhase(2), 600),
+      setTimeout(() => setPhase(3), 1000),
+      setTimeout(() => setPhase(4), 1500),
     ];
     return () => timers.forEach(clearTimeout);
   }, [isInView]);
@@ -636,13 +642,13 @@ function BudgetSection() {
   useEffect(() => {
     if (!isInView) return;
     const timers = [
-      setTimeout(() => setPhase(1), 200),
-      setTimeout(() => setPhase(2), 450),
-      setTimeout(() => setPhase(3), 700),
-      setTimeout(() => setPhase(4), 950),
-      setTimeout(() => setPhase(5), 1400),
-      setTimeout(() => setPhase(6), 2000),
-      setTimeout(() => setPhase(7), 2600),
+      setTimeout(() => setPhase(1), 150),
+      setTimeout(() => setPhase(2), 300),
+      setTimeout(() => setPhase(3), 450),
+      setTimeout(() => setPhase(4), 600),
+      setTimeout(() => setPhase(5), 900),
+      setTimeout(() => setPhase(6), 1300),
+      setTimeout(() => setPhase(7), 1700),
     ];
     return () => timers.forEach(clearTimeout);
   }, [isInView]);
@@ -881,7 +887,7 @@ export default function DemoPage() {
         </div>
       </nav>
 
-      <section id="hero" className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4 pt-24">
+      <section id="hero" className="min-h-[50vh] flex flex-col items-center justify-center text-center px-4 pt-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

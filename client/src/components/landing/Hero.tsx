@@ -91,6 +91,29 @@ export function Hero() {
             </motion.div>
           </div>
 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="lg:hidden mt-10 mx-auto max-w-[320px]"
+          >
+            <div className="rounded-2xl overflow-hidden shadow-2xl relative aspect-[4/3] border border-white/10">
+              <img src="/images/hero-barcelona.jpg" className="w-full h-full object-cover" alt="Barcelona trip destination" loading="eager" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/60 pointer-events-none" />
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <div className="flex justify-between items-end">
+                  <div>
+                    <div className="text-[9px] font-semibold opacity-70 uppercase tracking-[0.2em] mb-0.5">Group Trip</div>
+                    <div className="text-xl font-display font-bold">Barcelona</div>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur-md rounded-full px-2.5 py-1 text-xs font-semibold border border-white/10">
+                    <Users size={12} className="inline mr-1" />5 going
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
           <div className="relative h-[550px] lg:h-[650px] w-full hidden lg:block" style={{ perspective: "2000px" }}>
             <motion.div 
               style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
@@ -132,7 +155,7 @@ export function Hero() {
               </motion.div>
 
               <motion.div 
-                 className="absolute top-24 -left-8 p-4 bg-white/10 backdrop-blur-xl rounded-2xl shadow-xl z-30 animate-float-slow border border-white/10"
+                 className="absolute top-24 left-0 xl:-left-8 p-4 bg-white/10 backdrop-blur-xl rounded-2xl shadow-xl z-30 animate-float-slow border border-white/10"
                  style={{ transform: "translateZ(70px)" }}
               >
                  <div className="flex items-center gap-3">
@@ -147,7 +170,7 @@ export function Hero() {
               </motion.div>
 
               <motion.div 
-                 className="absolute bottom-32 -right-4 p-4 bg-white/10 backdrop-blur-xl rounded-2xl shadow-xl z-30 border border-white/10"
+                 className="absolute bottom-32 right-0 xl:-right-4 p-4 bg-white/10 backdrop-blur-xl rounded-2xl shadow-xl z-30 border border-white/10"
                  style={{ transform: "translateZ(60px)", animation: "float-slow 8s ease-in-out 2s infinite" }}
               >
                  <div className="flex items-center gap-3">

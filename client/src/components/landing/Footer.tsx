@@ -32,9 +32,9 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-white text-sm mb-5">Company</h4>
             <ul className="space-y-3 text-sm text-white/30">
-              <li><span className="cursor-default" data-testid="link-footer-about">About</span></li>
-              <li><span className="cursor-default" data-testid="link-footer-blog">Blog</span></li>
-              <li><span className="cursor-default" data-testid="link-footer-contact">Contact</span></li>
+              <li><span className="cursor-default" title="Coming soon" data-testid="link-footer-about">About</span></li>
+              <li><span className="cursor-default" title="Coming soon" data-testid="link-footer-blog">Blog</span></li>
+              <li><span className="cursor-default" title="Coming soon" data-testid="link-footer-contact">Contact</span></li>
             </ul>
           </div>
 
@@ -48,7 +48,7 @@ export function Footer() {
 
         </div>
         
-        <div className="pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/20">
+        <div className="pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/35">
           <p>&copy; 2026 SideQuest Inc. All rights reserved.</p>
         </div>
       </div>

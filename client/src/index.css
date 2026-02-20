@@ -140,7 +140,7 @@
 
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 30%, rgba(249,115,22,0.12) 50%, rgba(255,255,255,0.06) 70%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.10) 30%, rgba(249,115,22,0.20) 50%, rgba(255,255,255,0.10) 70%, transparent 100%);
 }
 
 .glow-orange {

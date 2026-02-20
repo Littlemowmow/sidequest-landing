@@ -97,7 +97,7 @@ function SquadItineraryMockup() {
   const items = [
     { time: "Morning", activity: "La Boqueria Market", icon: "🍊", addedBy: "Jess" },
     { time: "Afternoon", activity: "Gothic Quarter Walk", icon: "🏛️", addedBy: "Marco" },
-    { time: "Evening", activity: "Hidden Rooftop Bar", icon: "🍸", addedBy: "Jess" },
+    { time: "Evening", activity: "Sunset Viewpoint Hike", icon: "🌅", addedBy: "Jess" },
   ];
 
   return (
