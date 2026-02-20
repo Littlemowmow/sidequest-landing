@@ -59,7 +59,7 @@ export function Hero() {
                 <span className="text-4xl md:text-5xl lg:text-[3.5rem] text-white/50">Your groupchat is <span className="text-blue-400/80">frozen.</span></span>
               </h1>
               
-              <p className="text-lg md:text-xl text-white/50 leading-relaxed mb-10 max-w-lg" data-testid="text-hero-subtitle">
+              <p className="text-base md:text-xl text-white/50 leading-relaxed mb-10 max-w-lg" data-testid="text-hero-subtitle">
                 SideQuest is the app that turns "I'm down if you are" into an actual trip — with group voting, budget alignment, and hidden gems your guidebook doesn't know about. Built by college students, for college students.
               </p>
 
@@ -81,10 +81,10 @@ export function Hero() {
                   aria-label="Try interactive demo"
                   data-testid="button-hero-demo"
                 >
-                   <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                   <div className="w-10 h-10 rounded-full bg-white/15 border border-white/25 flex items-center justify-center group-hover:scale-110 transition-transform">
                      <PlayCircle className="text-white w-5 h-5" />
                    </div>
-                   <span className="font-medium text-white/50 group-hover:text-white transition-colors text-sm">Try the demo</span>
+                   <span className="font-medium text-white/60 group-hover:text-white transition-colors text-sm">Try the demo</span>
                 </button>
               </div>
 

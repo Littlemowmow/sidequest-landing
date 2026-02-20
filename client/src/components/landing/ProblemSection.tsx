@@ -109,7 +109,7 @@ export function ProblemSection() {
           </p>
         </motion.div>
 
-        <div className="relative max-w-5xl mx-auto flex justify-center items-center min-h-[600px]">
+        <div className="relative max-w-5xl mx-auto flex justify-center items-center min-h-[520px] lg:min-h-[600px]">
            
           <motion.div 
             initial={{ opacity: 0, x: -40 }}

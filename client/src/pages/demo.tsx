@@ -84,7 +84,7 @@ function PhoneFrame({ children }: { children: React.ReactNode }) {
     <div className="glass-card rounded-[2.5rem] p-2.5 w-full max-w-[340px] mx-auto">
       <div className="bg-white/5 rounded-[2rem] overflow-hidden relative border border-white/5">
         <div className="absolute top-2.5 left-1/2 -translate-x-1/2 h-5 w-16 bg-black rounded-full z-20" />
-        <div className="pt-10 pb-6 px-4 min-h-[580px]">
+        <div className="pt-10 pb-6 px-4 min-h-[480px]">
           {children}
         </div>
       </div>
@@ -136,7 +136,7 @@ function IMessageSection() {
         text={
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }}>
             <span className="inline-block py-1.5 px-4 rounded-full bg-orange-500/10 text-orange-400 font-bold text-xs uppercase tracking-wider mb-4 border border-orange-500/20">Step 1</span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">It starts where your friends already are</h2>
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-4">It starts where your friends already are</h2>
             <p className="text-white/50 leading-relaxed text-lg">Open SideQuest right from your iMessage group chat — like GamePigeon, but for trips.</p>
           </motion.div>
         }
@@ -435,10 +435,10 @@ function SwipeSection() {
                 )}
               </div>
               <div className="flex justify-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400">
+                <div className="w-12 h-12 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 opacity-60 cursor-default">
                   <X size={20} />
                 </div>
-                <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 opacity-60 cursor-default">
                   <Heart size={20} />
                 </div>
               </div>
@@ -483,7 +483,7 @@ function GroupVoteSection() {
         text={
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }}>
             <span className="inline-block py-1.5 px-4 rounded-full bg-orange-500/10 text-orange-400 font-bold text-xs uppercase tracking-wider mb-4 border border-orange-500/20">Step 5</span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">Democracy, but for vacations</h2>
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-4">Democracy, but for vacations</h2>
             <p className="text-white/50 leading-relaxed text-lg">Everyone votes anonymously — no peer pressure. SideQuest tallies it up and picks what the group actually wants.</p>
           </motion.div>
         }
@@ -552,10 +552,10 @@ function AIScheduleSection() {
   useEffect(() => {
     if (!isInView) return;
     const timers = [
-      setTimeout(() => setPhase(1), 200),
-      setTimeout(() => setPhase(2), 600),
-      setTimeout(() => setPhase(3), 1000),
-      setTimeout(() => setPhase(4), 1500),
+      setTimeout(() => setPhase(1), 100),
+      setTimeout(() => setPhase(2), 500),
+      setTimeout(() => setPhase(3), 900),
+      setTimeout(() => setPhase(4), 1400),
     ];
     return () => timers.forEach(clearTimeout);
   }, [isInView]);
@@ -578,14 +578,6 @@ function AIScheduleSection() {
                 <div className="text-[10px] font-bold text-white/30 uppercase tracking-widest mb-1">Smart Schedule</div>
                 <div className="text-white font-display font-bold">Optimizing...</div>
               </div>
-              {phase < 1 && (
-                <div className="flex flex-col items-center justify-center py-16">
-                  <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 2, ease: "linear" }}>
-                    <Sparkles size={32} className="text-orange-400" />
-                  </motion.div>
-                  <div className="text-white/30 text-sm mt-4 font-medium">AI is thinking...</div>
-                </div>
-              )}
               {phase >= 1 && (
                 <div className="space-y-3">
                   {AI_INSIGHTS.slice(0, phase).map((insight, i) => (
@@ -659,7 +651,7 @@ function BudgetSection() {
         text={
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }}>
             <span className="inline-block py-1.5 px-4 rounded-full bg-orange-500/10 text-orange-400 font-bold text-xs uppercase tracking-wider mb-4 border border-orange-500/20">Step 7</span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">Everyone sets their budget. We find the sweet spot.</h2>
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-4">Everyone sets their budget. We find the sweet spot.</h2>
             <p className="text-white/50 leading-relaxed text-lg">Each person enters what they can spend — no awkward conversations. SideQuest aligns the group automatically and splits costs fairly.</p>
           </motion.div>
         }
@@ -880,7 +872,7 @@ export default function DemoPage() {
             <Logo size="text-xl" className="text-white" />
           </Link>
           <Link href="/" className="inline-flex">
-            <Button variant="ghost" className="text-white/40 hover:text-white text-sm rounded-full" data-testid="link-back-home">
+            <Button variant="ghost" className="text-white/40 hover:text-white text-sm rounded-full min-h-[44px]" data-testid="link-back-home">
               ← Back to Home
             </Button>
           </Link>
@@ -909,25 +901,25 @@ export default function DemoPage() {
       </section>
 
       <SectionWrapper id="imessage"><IMessageSection /></SectionWrapper>
-      <HookText text="Four taps. That's all it takes. ↓" />
+      <HookText text="Four taps. That's all it takes." />
 
       <SectionWrapper id="setup"><QuickSetupSection /></SectionWrapper>
-      <HookText text="Now the AI does the boring part. ↓" />
+      <HookText text="Now the AI does the boring part." />
 
       <SectionWrapper id="itinerary"><SmartItinerarySection /></SectionWrapper>
-      <HookText text="But the best spots aren't in any guidebook. ↓" />
+      <HookText text="But the best spots aren't in any guidebook." />
 
       <SectionWrapper id="swipe"><SwipeSection /></SectionWrapper>
-      <HookText text="But how does the group decide? ↓" />
+      <HookText text="But how does the group decide?" />
 
       <SectionWrapper id="vote"><GroupVoteSection /></SectionWrapper>
-      <HookText text="Now let the AI put it all together. ↓" />
+      <HookText text="Now let the AI put it all together." />
 
       <SectionWrapper id="schedule"><AIScheduleSection /></SectionWrapper>
-      <HookText text="One last thing — who owes who? ↓" />
+      <HookText text="One last thing — who owes who?" />
 
       <SectionWrapper id="budget"><BudgetSection /></SectionWrapper>
-      <HookText text="That's SideQuest. Ready? ↓" />
+      <HookText text="That's SideQuest. Ready?" />
 
       <section id="cta"><CTASection /></section>
     </div>
