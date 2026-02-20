@@ -203,10 +203,12 @@ export function ProblemSection() {
             Sound familiar? There's a better way
             <ArrowDown size={18} className="group-hover:translate-y-0.5 transition-transform" />
           </button>
-          <Link href="/demo">
-            <span className="inline-flex items-center gap-2 text-white/30 hover:text-orange-400 transition-colors text-sm font-medium cursor-pointer group">
+          <Link
+            href="/demo"
+            className="inline-flex items-center gap-2 text-white/30 hover:text-orange-400 transition-colors text-sm font-medium cursor-pointer group"
+            data-testid="link-watch-demo"
+          >
               Watch full demo <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
-            </span>
           </Link>
         </motion.div>
       </div>

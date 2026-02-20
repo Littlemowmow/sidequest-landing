@@ -108,7 +108,7 @@ function HookText({ text }: { text: string }) {
 function SectionCounter({ current }: { current: number }) {
   if (current >= SECTION_COUNT) return null;
   return (
-    <div className="fixed bottom-6 right-6 z-50 text-white/20 font-mono text-sm font-bold tracking-wider hidden md:block">
+    <div aria-hidden="true" className="fixed bottom-6 right-6 z-50 text-white/20 font-mono text-sm font-bold tracking-wider hidden md:block">
       {String(current).padStart(2, "0")} / {String(SECTION_COUNT).padStart(2, "0")}
     </div>
   );
@@ -820,6 +820,7 @@ function CTASection() {
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="mt-6 text-white/20 hover:text-white/40 text-sm inline-flex items-center gap-1.5 transition-colors"
+          aria-label="Scroll to top and watch demo again"
         >
           <ArrowUp size={14} /> Watch again
         </button>
@@ -832,6 +833,10 @@ export default function DemoPage() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
   const [activeSection, setActiveSection] = useState(1);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -863,14 +868,12 @@ export default function DemoPage() {
 
       <SectionCounter current={activeSection} />
 
-      <nav className="fixed top-[2px] left-0 right-0 z-40 px-4 py-3 bg-black/60 backdrop-blur-xl border-b border-white/5">
+      <nav aria-label="Demo navigation" className="fixed top-[2px] left-0 right-0 z-40 px-4 py-3 bg-black/60 backdrop-blur-xl border-b border-white/5">
         <div className="container mx-auto max-w-6xl flex justify-between items-center">
-          <Link href="/">
-            <div className="cursor-pointer hover:opacity-80 transition-opacity">
-              <Logo size="text-xl" className="text-white" />
-            </div>
+          <Link href="/" className="hover:opacity-80 transition-opacity" aria-label="Back to home">
+            <Logo size="text-xl" className="text-white" />
           </Link>
-          <Link href="/">
+          <Link href="/" className="inline-flex">
             <Button variant="ghost" className="text-white/40 hover:text-white text-sm rounded-full" data-testid="link-back-home">
               ← Back to Home
             </Button>
