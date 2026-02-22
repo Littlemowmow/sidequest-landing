@@ -2,5 +2,9 @@
   "buildCommand": "npx vite build",
   "outputDirectory": "dist/public",
   "installCommand": "npm install",
-  "framework": "vite"
+  "framework": "vite",
+  "rewrites": [
+    { "source": "/api/waitlist/count", "destination": "/api/waitlist/count" },
+    { "source": "/api/waitlist", "destination": "/api/waitlist" }
+  ]
 }
