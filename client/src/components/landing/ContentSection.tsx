@@ -16,7 +16,8 @@ export function ContentSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "0px 0px 200px 0px" }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-14"
         >
           <span className="inline-block py-1.5 px-4 rounded-full bg-orange-500/10 text-orange-400 font-bold text-xs uppercase tracking-wider mb-4 border border-orange-500/20">Launching First</span>
@@ -34,8 +35,8 @@ export function ContentSection() {
               key={city.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.08 }}
+              viewport={{ once: true, margin: "0px 0px 200px 0px" }}
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
               className="relative aspect-[4/3] rounded-2xl overflow-hidden group cursor-default hover-lift hover:shadow-xl hover:shadow-orange-500/10 border border-white/5 hover:border-white/15 transition-all duration-300"
               data-testid={`card-city-${idx}`}
             >

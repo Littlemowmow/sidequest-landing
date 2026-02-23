@@ -164,7 +164,8 @@ export function FeaturesSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "0px 0px 200px 0px" }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-20"
         >
           <span className="inline-block py-1.5 px-4 rounded-full bg-orange-500/10 text-orange-400 font-bold text-xs uppercase tracking-wider mb-4 border border-orange-500/20">How It Works</span>
@@ -182,7 +183,7 @@ export function FeaturesSection() {
               key={feature.id}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: true, margin: "0px 0px 200px 0px" }}
               transition={{ duration: 0.6 }}
               className={`flex flex-col ${idx % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-12 lg:gap-20`}
               data-testid={`card-feature-${idx}`}

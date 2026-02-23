@@ -15,7 +15,7 @@ const CHAT_MESSAGES = [
 
 function AutoPlayChat() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
   const [visibleMessages, setVisibleMessages] = useState(0);
   const [showSolution, setShowSolution] = useState(false);
 
@@ -96,7 +96,7 @@ export function ProblemSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "0px 0px 200px 0px" }}
           transition={{ duration: 0.5 }}
         >
           <span className="inline-block py-1.5 px-4 rounded-full bg-orange-500/10 text-orange-400 font-bold text-xs uppercase tracking-wider mb-4 border border-orange-500/20">The Problem</span>
@@ -114,7 +114,7 @@ export function ProblemSection() {
           <motion.div 
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "0px 0px 200px 0px" }}
             transition={{ type: "spring", bounce: 0.4 }}
             className="absolute left-0 top-16 hidden lg:block w-64 z-20"
           >
@@ -129,7 +129,7 @@ export function ProblemSection() {
           <motion.div 
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "0px 0px 200px 0px" }}
             transition={{ type: "spring", bounce: 0.4, delay: 0.1 }}
             className="absolute right-0 top-28 hidden lg:block w-64 z-20"
           >
@@ -145,7 +145,7 @@ export function ProblemSection() {
           <motion.div 
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "0px 0px 200px 0px" }}
             transition={{ type: "spring", bounce: 0.4, delay: 0.2 }}
             className="absolute left-8 bottom-24 hidden lg:block w-56 z-20"
           >
@@ -160,7 +160,7 @@ export function ProblemSection() {
           <motion.div 
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "0px 0px 200px 0px" }}
             transition={{ type: "spring", bounce: 0.4, delay: 0.3 }}
             className="absolute right-4 bottom-16 hidden lg:block w-60 z-20"
           >
@@ -175,7 +175,7 @@ export function ProblemSection() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "0px 0px 200px 0px" }}
             transition={{ type: "spring", bounce: 0.3 }}
             className="glass-card rounded-[2.5rem] p-2.5 relative z-10 w-full max-w-[320px] mx-auto border border-white/10"
             data-testid="demo-phone-frame"
@@ -192,7 +192,8 @@ export function ProblemSection() {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "0px 0px 200px 0px" }}
+          transition={{ duration: 0.5 }}
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <button

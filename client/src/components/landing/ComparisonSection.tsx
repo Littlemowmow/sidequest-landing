@@ -24,7 +24,8 @@ export function ComparisonSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "0px 0px 200px 0px" }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
           <span className="inline-block py-1.5 px-4 rounded-full bg-orange-500/10 text-orange-400 font-bold text-xs uppercase tracking-wider mb-4 border border-orange-500/20">Compare</span>
@@ -37,7 +38,8 @@ export function ComparisonSection() {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "0px 0px 200px 0px" }}
+            transition={{ duration: 0.5 }}
             className="bg-white/5 rounded-3xl p-8 border border-white/10 hover:border-white/15 transition-colors"
           >
             <h3 className="text-lg font-bold text-white/40 mb-6 flex items-center gap-2">
@@ -59,7 +61,8 @@ export function ComparisonSection() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "0px 0px 200px 0px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="bg-gradient-to-br from-orange-500/10 to-amber-500/5 rounded-3xl p-8 border border-orange-500/20 shadow-lg shadow-orange-500/5 hover:border-orange-500/30 transition-colors"
           >
             <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
