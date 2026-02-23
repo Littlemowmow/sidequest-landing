@@ -1,4 +1,4 @@
-import { getResendClient } from "./resend";
+import { Resend } from "resend";
 
 function buildWaitlistEmailHtml(params: {
   name: string;
@@ -6,11 +6,7 @@ function buildWaitlistEmailHtml(params: {
   referralCode: string;
 }): string {
   const { name, destination, referralCode } = params;
-  const baseUrl = process.env.REPLIT_DEV_DOMAIN
-    ? `https://${process.env.REPLIT_DEV_DOMAIN}`
-    : process.env.REPLIT_DEPLOYMENT_URL
-    ? `https://${process.env.REPLIT_DEPLOYMENT_URL}`
-    : "https://sidequest.app";
+  const baseUrl = process.env.SITE_URL || "https://sidequest.app";
   const referralUrl = `${baseUrl}?ref=${referralCode}`;
 
   const destinationLine = destination
@@ -111,9 +107,17 @@ export async function sendWaitlistConfirmationEmail(params: {
   referralCode: string;
 }): Promise<{ success: boolean; error?: string }> {
   try {
-    const { client, fromEmail } = await getResendClient();
+    const apiKey = process.env.RESEND_API_KEY;
+    const fromEmail = process.env.RESEND_FROM_EMAIL || "SideQuest <noreply@sidequest.app>";
+
+    if (!apiKey) {
+      console.warn("RESEND_API_KEY not set, skipping email");
+      return { success: false, error: "Email not configured" };
+    }
+
+    const client = new Resend(apiKey);
     const name = params.email.split("@")[0];
-    
+
     const html = buildWaitlistEmailHtml({
       name,
       destination: params.destination,
@@ -121,7 +125,7 @@ export async function sendWaitlistConfirmationEmail(params: {
     });
 
     await client.emails.send({
-      from: fromEmail,
+      from: fromEmail as string,
       to: params.email,
       subject: "You're on the list \u{1F680} — SideQuest",
       html,
