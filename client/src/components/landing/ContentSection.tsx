@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 
 const cities = [
   { name: "Barcelona", flag: "🇪🇸", image: "/images/city-barcelona.jpg" },
-  { name: "London", flag: "🇬🇧", image: "/images/city-london.jpg" },
-  { name: "Paris", flag: "🇫🇷", image: "/images/city-paris.jpg" },
+  { name: "New York", flag: "🇺🇸", image: "/images/city-nyc.png" },
+  { name: "Paris", flag: "🇫🇷", image: "/images/city-paris.png" },
   { name: "Rome", flag: "🇮🇹", image: "/images/city-rome-new.jpg" },
   { name: "Tokyo", flag: "🇯🇵", image: "/images/city-tokyo.png" },
-  { name: "Ann Arbor", flag: "🇺🇸", image: "/images/city-annarbor.jpg", tag: "HQ" },
+  { name: "Bali", flag: "🇮🇩", image: "/images/city-bali.png" },
 ];
 
 export function ContentSection() {

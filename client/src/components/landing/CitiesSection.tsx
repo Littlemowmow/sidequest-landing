@@ -2,12 +2,12 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const cities = [
-  { name: "Barcelona", flag: "🇪🇸", img: "/images/hero-friends.png" }, // reusing for mockup
-  { name: "London", flag: "🇬🇧", img: "/images/card-discover.png" },
-  { name: "Paris", flag: "🇫🇷", img: "/images/card-local.png" },
-  { name: "Rome", flag: "🇮🇹", img: "/images/city-rome.png" },
+  { name: "Barcelona", flag: "🇪🇸", img: "/images/city-barcelona.jpg" },
+  { name: "New York", flag: "🇺🇸", img: "/images/city-nyc.png" },
+  { name: "Paris", flag: "🇫🇷", img: "/images/city-paris.png" },
+  { name: "Rome", flag: "🇮🇹", img: "/images/city-rome-new.jpg" },
   { name: "Tokyo", flag: "🇯🇵", img: "/images/city-tokyo.png" },
-  { name: "Sydney", flag: "🇦🇺", img: "/images/card-tourist.png" },
+  { name: "Bali", flag: "🇮🇩", img: "/images/city-bali.png" },
 ];
 
 export function CitiesSection() {
